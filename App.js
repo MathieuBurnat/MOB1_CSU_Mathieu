@@ -2,6 +2,27 @@ import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, ImageBackground} from 'react-native';
 
+/*
+data = "test"
+componentDidMount() {
+  axios.get(`https://jsonplaceholder.typicode.com/users`)
+    .then(res => {
+      const persons = res.data;
+      this.setState({ persons });
+    })
+  }
+
+getData = () => {
+  axios.get(`${url}past`)
+  .then((reponse) => {
+    const data = response.data;
+    console.log("Data: " + data);
+  })
+  .catch(error => console.error(`Error : ${error}`))
+}
+source : https://www.digitalocean.com/community/tutorials/react-axios-react
+*/
+
 class app extends Component {
   render(){
     return (
