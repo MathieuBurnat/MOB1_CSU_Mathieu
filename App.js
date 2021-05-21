@@ -9,6 +9,21 @@ export default function App() {
       <ImageBackground source={require('./back.jpg')} style={styles.image}>
         <Text style={styles.text}>WELCOME</Text>
         
+        <form>
+          <label>
+            <input type="text" name="name" />
+          </label>
+
+          <select>
+            <option value="grapefruit">Pamplemousse</option>
+            <option value="lime">Citron vert</option>
+            <option value="coconut">Noix de coco</option>
+            <option value="mango">Mangue</option>
+          </select>
+
+          <input type="submit" value="Envoyer" />
+        </form>
+
       </ImageBackground>
     </View>
   );
