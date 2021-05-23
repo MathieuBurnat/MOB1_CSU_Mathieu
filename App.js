@@ -2,6 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, ImageBackground} from 'react-native';
 
+import Test from "./API/api.js"
+
 /*
 data = "test"
 componentDidMount() {
@@ -45,7 +47,7 @@ class app extends Component {
   
             <input type="submit" value="Envoyer" />
           </form>
-  
+        <Test></Test>
         </ImageBackground>
       </View>
     );
