@@ -3,13 +3,17 @@ import React from 'react';
 import axios from 'axios';
 
 export default class API extends React.Component {
-  data = {};
+    state = {
+        data: []
+    }
 
-  componentDidMount() {
+    componentDidMount() {
     axios.get(`http://127.0.0.1:8000/api/bases`)
       .then(res => {
-        this.data = res.data;
-        console.log(this.data);
+        const data = res.data;
+        console.log(data);
+        this.setState({ data });
+
       })
       .catch(error => console.error(`Error : ${error}`))
   }
@@ -17,7 +21,7 @@ export default class API extends React.Component {
   render() {
     return (
       <ul>
-        <p>test</p>
+        { this.state.data.map(base => <li>{base.name}</li>)}
       </ul>
     )
   }
