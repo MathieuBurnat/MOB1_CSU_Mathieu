@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, ImageBackground} from 'react-native';
 
-import Test from "./API/api.js"
+import SelectCities from "./component/SelectCities.js"
 
 class app extends Component {
   render(){
@@ -26,7 +26,7 @@ class app extends Component {
   
             <input type="submit" value="Envoyer" />
           </form>
-        <Test></Test>
+        <SelectCities></SelectCities>
         </ImageBackground>
       </View>
     );
