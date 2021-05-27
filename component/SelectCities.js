@@ -7,7 +7,7 @@ export default class SelectCities extends React.Component {
  
   render() {
     return (
-      <Test test="Poney"></Test>
+      <Test url="http://127.0.0.1:8000/api/bases"></Test>
       )
 
     //could be return data as object and play with 'em into another component ?

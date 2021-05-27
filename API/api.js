@@ -7,10 +7,12 @@ export default class API extends React.Component {
       data: []
   }
 
-  componentDidMount() {
-    axios.get(`http://127.0.0.1:8000/api/bases`)
+  getDataFrom(url){
+    let data;
+    axios.get(url)
     .then(res => {
-      const data = res.data;
+      data = res.data;
+      console.log(data);
       this.setState({ data });
     })
     .catch(error => console.error(`Error : ${error}`))
@@ -18,8 +20,12 @@ export default class API extends React.Component {
 
   render()
   {
-      return (
-        <p>{this.props.test}</p>
-      )
+    let test;
+    if (this.state.data == null)
+      test = this.getDataFrom(this.props.url);
+
+    return (
+      <p> {test} </p>
+    )
   }
 }
