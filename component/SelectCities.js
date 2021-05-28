@@ -8,7 +8,7 @@ export default class SelectCities extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cities = [],
+      cities : [],
     };
   }
 
@@ -20,7 +20,7 @@ export default class SelectCities extends React.Component {
         });
       }
       console.log(res.data);
-      console.log(state.cities);
+      console.log(this.state.cities);
     })
   }
 
