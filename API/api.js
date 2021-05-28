@@ -21,8 +21,10 @@ export default class API extends React.Component {
   render()
   {
     let test;
-    if (this.state.data == null)
-      test = this.getDataFrom(this.props.url);
+    if (this.state.data == null){
+      //test = this.getDataFrom(this.props.url);
+      test = this.props.url;
+    }
 
     return (
       <p> {test} </p>
