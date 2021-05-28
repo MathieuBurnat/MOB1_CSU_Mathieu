@@ -1,10 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, ImageBackground} from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, SafeAreaView, TextInput} from 'react-native';
 
 import SelectCities from "./component/SelectCities.js"
 
 class app extends Component {
+
+
   render(){
     return (
       <View style={styles.container}>
@@ -12,13 +14,18 @@ class app extends Component {
         <ImageBackground source={require('./back.jpg')} style={styles.image}>
           <Text style={styles.text}>WELCOME</Text>
           
+          <SafeAreaView>
+            <TextInput style={styles.textInput}/> 
+            <TextInput style={styles.textInput}/>
+          </SafeAreaView>
+
           <form>
             <label>
               <input type="text" name="name" />
             </label>
             <input type="submit" value="Envoyer" />
           </form>
-          
+
         <SelectCities></SelectCities>
         </ImageBackground>
       </View>
@@ -45,5 +52,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     backgroundColor: "#000000a0"
+  },
+  textInput: {
+    backgroundColor: "white",
   }
 });
