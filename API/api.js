@@ -2,16 +2,19 @@ import React from 'react';
 
 import axios from 'axios';
 
-export default class API {
-  getDataFrom(url){
+class API {
+
+  getDataFromBase(){
     let data;
-    axios.get(url)
+    axios.get("http://127.0.0.1:8000/api/bases")
     .then(res => {
       data = res.data;
       console.log(data);
-
       return data;
     })
     .catch(error => console.error(`Error : ${error}`))
   }
 }
+
+const myApi = new API();
+export default myApi;

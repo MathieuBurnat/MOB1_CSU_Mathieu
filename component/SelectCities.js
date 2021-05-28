@@ -1,13 +1,14 @@
 import React from 'react';
 
 import axios from 'axios';
-import Test from "../API/api.js"
+import myApi from "../API/api.js"
+
 
 export default class SelectCities extends React.Component {
  
   render() {
     return (
-      <Test url="http://127.0.0.1:8000/api/bases"></Test>
+      <p> { myApi.getDataFromBase() } </p>
       )
 
     //could be return data as object and play with 'em into another component ?
