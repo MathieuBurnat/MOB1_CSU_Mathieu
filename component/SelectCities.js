@@ -2,6 +2,7 @@ import React from 'react';
 
 import axios from 'axios';
 import myApi from "../API/api.js"
+import { Picker } from '@react-native-picker/picker';
 
 
 export default class SelectCities extends React.Component {
@@ -23,9 +24,9 @@ export default class SelectCities extends React.Component {
 
   render() {
     return (
-      <ul>
-        { this.state.data.map(base => <li>{base.name}</li>)}
-      </ul>
-    )
+      <Picker onValueChange={(itemValue, itemIndex) => this.selectedValue = itemValue}>
+          { this.state.data.map(base =>  <Picker.Item label={base.name} value={base.id} />)}
+      </Picker>
+    );
   }
 }
