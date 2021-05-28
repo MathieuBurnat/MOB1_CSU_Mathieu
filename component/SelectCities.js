@@ -8,25 +8,24 @@ export default class SelectCities extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cities : [],
+      data : [],
     };
   }
 
   componentDidMount(){
-    myApi.getDataFromBase().then(res => {
-      res => {
-        this.setState({
-          cities: res.data
-        });
-      }
-      console.log(res.data);
-      console.log(this.state.cities);
+    myApi.getDataFromBase()
+    .then(res => {
+      this.setState({ 
+        data : res.data 
+      });
     })
   }
 
   render() {
     return (
-      <p>test</p>
+      <ul>
+        { this.state.data.map(base => <li>{base.name}</li>)}
+      </ul>
     )
   }
 }
