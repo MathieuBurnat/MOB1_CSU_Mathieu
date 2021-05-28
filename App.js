@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, ImageBackground, SafeAreaView, TextInput} from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, SafeAreaView, TextInput, Button} from 'react-native';
 
 import SelectCities from "./component/SelectCities.js"
 
@@ -15,8 +15,19 @@ class app extends Component {
           <Text style={styles.text}>WELCOME</Text>
           
           <SafeAreaView>
+          <Text style={styles.text}>Init</Text>
+
             <TextInput style={styles.textInput}/> 
-            <TextInput style={styles.textInput}/>
+          <Text style={styles.text}>Password</Text>
+
+          <TextInput style={styles.textInput}/>
+
+          <Button
+            title="Press me"
+            color="#f194ff"
+            onPress={() => Alert.alert('Button with adjusted color pressed')}
+          />
+
           </SafeAreaView>
 
           <form>
