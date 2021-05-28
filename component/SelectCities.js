@@ -5,19 +5,17 @@ import myApi from "../API/api.js"
 
 
 export default class SelectCities extends React.Component {
+
   componentDidMount(){
-    const cities = myApi.getDataFromBase();
+    myApi.getDataFromBase();
+    const test = myApi.state;
   }
 
   render() {
+    console.log(this.test)
+    
     return (
-      <ul>
-        {
-          ({ cities }) => (
-            <li> {cities.name} </li>
-          )
-        }
-      </ul>
+      <p>test</p>
     )
   }
 }
