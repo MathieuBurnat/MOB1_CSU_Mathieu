@@ -9,6 +9,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Homepage from './screens/homepage';
 import Info from './screens/info';
+import Login from './screens/login';
 
 const Stack = createStackNavigator();
 
@@ -20,12 +21,16 @@ class app extends Component {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
-              name="homepage"
-              component={Homepage}
+                name="homepage"
+                component={Homepage}
           />
           <Stack.Screen
-            name="info"
-            component={Info}
+            name="login"
+            component={Login}
+          />
+          <Stack.Screen
+              name="info"
+              component={Info}
           />
         </Stack.Navigator>
     </NavigationContainer>

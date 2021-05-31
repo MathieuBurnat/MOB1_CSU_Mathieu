@@ -5,10 +5,15 @@ class Homepage extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text> Hello there !</Text>
-
+        <Text> Welcome </Text>
         <Button
-          title="More info here"
+          title="Se connecter"
+          onPress={() =>
+            this.props.navigation.navigate('login')
+          }
+        />
+        <Button
+          title="Info"
           onPress={() =>
             this.props.navigation.navigate('info')
           }
