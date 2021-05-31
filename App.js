@@ -1,40 +1,34 @@
+import 'react-native-gesture-handler';
+
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
 import { Text, StyleSheet, TextInput, View, SafeAreaView, Button} from 'react-native';
 
-import SelectCities from "./component/SelectCities.js"
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import Homepage from './screens/homepage';
+import Info from './screens/info';
+
+const Stack = createStackNavigator();
 
 class app extends Component {
 
 
   render(){
     return (
-      <View style={styles.container}>
-        <StatusBar style="auto" />
-          <Text> WELCOME</Text>
-          
-          <SafeAreaView>
-
-          <Text>Login</Text>
-
-          <TextInput
-            style={{height: 40}}
-            placeholder="Login"
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+              name="homepage"
+              component={Homepage}
           />
-
-          <Text>Password</Text>
-
-          <TextInput
-            style={{height: 40, }}
-            placeholder="Password"
-            secureTextEntry={true}
+          <Stack.Screen
+            name="info"
+            component={Info}
           />
-
-          <Button title="Login"/>
-
-          </SafeAreaView>
-        <SelectCities></SelectCities>
-      </View>
+        </Stack.Navigator>
+    </NavigationContainer>
     );
   }
 }
