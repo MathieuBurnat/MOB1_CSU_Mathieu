@@ -11,7 +11,7 @@ class app extends Component {
     return (
       <View style={styles.container}>
         <StatusBar style="auto" />
-          <Text >WELCOME</Text>
+          <Text>WELCOME</Text>
           
           <SafeAreaView>
 
