@@ -1,10 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, ImageBackground} from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, SafeAreaView, TextInput, Button} from 'react-native';
 
-import Test from "./API/api.js"
+import SelectCities from "./component/SelectCities.js"
 
 class app extends Component {
+
+
   render(){
     return (
       <View style={styles.container}>
@@ -12,21 +14,30 @@ class app extends Component {
         <ImageBackground source={require('./back.jpg')} style={styles.image}>
           <Text style={styles.text}>WELCOME</Text>
           
+          <SafeAreaView>
+          <Text style={styles.text}>Init</Text>
+
+            <TextInput style={styles.textInput}/> 
+          <Text style={styles.text}>Password</Text>
+
+          <TextInput style={styles.textInput}/>
+
+          <Button
+            title="Press me"
+            color="#f194ff"
+            onPress={() => Alert.alert('Button with adjusted color pressed')}
+          />
+
+          </SafeAreaView>
+
           <form>
             <label>
               <input type="text" name="name" />
             </label>
-  
-            <select>
-              <option value="grapefruit">Pamplemousse</option>
-              <option value="lime">Citron vert</option>
-              <option value="coconut">Noix de coco</option>
-              <option value="mango">Mangue</option>
-            </select>
-  
             <input type="submit" value="Envoyer" />
           </form>
-        <Test></Test>
+
+        <SelectCities></SelectCities>
         </ImageBackground>
       </View>
     );
@@ -52,5 +63,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     backgroundColor: "#000000a0"
+  },
+  textInput: {
+    backgroundColor: "white",
   }
 });
