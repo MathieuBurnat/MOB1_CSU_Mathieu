@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, SafeAreaView, TextInput, Button} from 'react-native';
+import { Text, StyleSheet, TextInput, View, SafeAreaView, Button} from 'react-native';
 
 import SelectCities from "./component/SelectCities.js"
 
@@ -11,16 +11,26 @@ class app extends Component {
     return (
       <View style={styles.container}>
         <StatusBar style="auto" />
-          <Text>WELCOME</Text>
+          <Text> WELCOME</Text>
           
           <SafeAreaView>
 
-          <TextInput/> 
+          <Text>Login</Text>
+
+          <TextInput
+            style={{height: 40}}
+            placeholder="Login"
+          />
+
           <Text>Password</Text>
 
-          <TextInput/>
+          <TextInput
+            style={{height: 40, }}
+            placeholder="Password"
+            secureTextEntry={true}
+          />
 
-          <Button title="Press me"/>
+          <Button title="Login"/>
 
           </SafeAreaView>
         <SelectCities></SelectCities>
@@ -36,5 +46,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column"
+  },
+  border:{
+    borderStyle: "solid",
+    borderWidth: "thin"
   }
 });
