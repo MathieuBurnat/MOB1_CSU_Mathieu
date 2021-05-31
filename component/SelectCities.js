@@ -1,31 +1,35 @@
-import React from 'react';
+import React from "react";
 
-import axios from 'axios';
-import myApi from "../API/api.js"
-import { Picker } from '@react-native-picker/picker';
-
+import axios from "axios";
+import myApi from "../API/api.js";
+import { Picker } from "@react-native-picker/picker";
 
 export default class SelectCities extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data : [],
+      data: [],
     };
   }
 
-  componentDidMount(){
-    myApi.getDataFromBase()
-    .then(res => {
-      this.setState({ 
-        data : res.data 
+  componentDidMount() {
+    myApi.getDataFromBase().then((res) => {
+      this.setState({
+        data: res.data,
       });
-    })
+    });
   }
 
   render() {
     return (
-      <Picker onValueChange={(itemValue, itemIndex) => this.selectedValue = itemValue}>
-          { this.state.data.map(base =>  <Picker.Item label={base.name} value={base.id} key={base.id}/>)}
+      <Picker
+        onValueChange={(itemValue, itemIndex) =>
+          (this.selectedValue = itemValue)
+        }
+      >
+        {this.state.data.map((base) => (
+          <Picker.Item label={base.name} value={base.id} key={base.id} />
+        ))}
       </Picker>
     );
   }

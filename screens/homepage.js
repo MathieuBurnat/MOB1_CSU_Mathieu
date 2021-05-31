@@ -1,5 +1,5 @@
-import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import React from "react";
+import { StyleSheet, Text, View, Button } from "react-native";
 
 class Homepage extends React.Component {
   render() {
@@ -8,15 +8,11 @@ class Homepage extends React.Component {
         <Text> Welcome </Text>
         <Button
           title="Se connecter"
-          onPress={() =>
-            this.props.navigation.navigate('login')
-          }
+          onPress={() => this.props.navigation.navigate("login")}
         />
         <Button
           title="Info"
-          onPress={() =>
-            this.props.navigation.navigate('info')
-          }
+          onPress={() => this.props.navigation.navigate("info")}
         />
       </View>
     );
@@ -26,9 +22,9 @@ class Homepage extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
 
