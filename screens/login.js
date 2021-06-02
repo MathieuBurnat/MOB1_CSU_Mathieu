@@ -25,7 +25,6 @@ class Login extends Component {
     };
     this.setLogin = this.setLogin.bind(this);
     this.setPassword = this.setPassword.bind(this);
-    this.login = this.login.bind(this);
   }
 
   setLogin(login) {
@@ -48,7 +47,7 @@ class Login extends Component {
     console.log(this.state.user);
   }
 
-  login()
+  login = () =>
   {
     console.log("Log.. IN");
     console.log(this.state.user);
@@ -80,7 +79,7 @@ class Login extends Component {
 
           <Button
             title="Login"
-            onPress={() => this.login()}
+            onPress={this.login}
           />
 
           <SelectCities></SelectCities>
