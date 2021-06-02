@@ -25,6 +25,7 @@ class Login extends Component {
     };
     this.setLogin = this.setLogin.bind(this);
     this.setPassword = this.setPassword.bind(this);
+    this.login = this.login.bind(this);
   }
 
   setLogin(login) {
@@ -44,6 +45,12 @@ class Login extends Component {
         password,
       },
     });
+    console.log(this.state.user);
+  }
+
+  login()
+  {
+    console.log("Log.. IN");
     console.log(this.state.user);
   }
 
@@ -71,7 +78,10 @@ class Login extends Component {
             onChangeText={this.setPassword}
           />
 
-          <Button title="Login" />
+          <Button
+            title="Login"
+            onPress={() => this.login()}
+          />
 
           <SelectCities></SelectCities>
         </SafeAreaView>
