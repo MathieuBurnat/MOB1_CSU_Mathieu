@@ -23,6 +23,7 @@ class Login extends Component {
         initials: "",
         password: "",
       },
+      message: "",
     };
     this.setInitials = this.setInitials.bind(this);
     this.setPassword = this.setPassword.bind(this);
@@ -58,8 +59,11 @@ class Login extends Component {
     })
     .then((response) => {
       console.log(response);
+      this.setState({message : ""});
+
     }, (error) => {
       console.log(error);
+      this.setState({message : "The login or the password is wrong. "});
     });
   }
 
@@ -94,6 +98,7 @@ class Login extends Component {
 
           <SelectCities></SelectCities>
         </SafeAreaView>
+        <Text> {this.state.message} </Text>
       </View>
     );
   }
