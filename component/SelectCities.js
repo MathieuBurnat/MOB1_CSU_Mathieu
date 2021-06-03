@@ -1,6 +1,4 @@
 import React from "react";
-
-import axios from "axios";
 import myApi from "../API/api.js";
 import { Picker } from "@react-native-picker/picker";
 
