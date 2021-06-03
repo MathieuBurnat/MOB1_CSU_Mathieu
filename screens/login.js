@@ -1,5 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
+import axios from "axios";
+
 import {
   Text,
   StyleSheet,
@@ -51,6 +53,16 @@ class Login extends Component {
   {
     console.log("Log.. IN");
     console.log(this.state.user);
+
+    axios.post('http://127.0.0.1:8000/api/gettoken', {
+      initials: 'XCL',
+      password: 'test'
+    })
+    .then((response) => {
+      console.log(response);
+    }, (error) => {
+      console.log(error);
+    });
   }
 
   render() {
