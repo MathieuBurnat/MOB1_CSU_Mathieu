@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
 import axios from "axios";
+import sha256 from 'crypto-js/sha256';
 
 import {
   Text,
@@ -20,20 +21,19 @@ class Login extends Component {
     this.state = {
       data: [],
       user: {
-        login: "",
         initials: "",
         password: "",
       },
     };
-    this.setLogin = this.setLogin.bind(this);
+    this.setInitials = this.setInitials.bind(this);
     this.setPassword = this.setPassword.bind(this);
   }
 
-  setLogin(login) {
+  setInitials(initials) {
     this.setState({
       user: {
         ...this.state.user,
-        login,
+        initials,
       },
     });
     console.log(this.state.user);
@@ -51,12 +51,14 @@ class Login extends Component {
 
   login = () =>
   {
-    console.log("Log.. IN");
+    var hash = CryptoJS.SHA256("Message");
+    console.log(hash);
+
     console.log(this.state.user);
 
     axios.post('http://127.0.0.1:8000/api/gettoken', {
-      initials: 'XCL',
-      password: 'test'
+      initials: this.state.user.initials,
+      password: 'Pa$$w0rd'
     })
     .then((response) => {
       console.log(response);
@@ -77,7 +79,7 @@ class Login extends Component {
           <TextInput
             style={{ height: 40 }}
             placeholder="Login"
-            onChangeText={this.setLogin}
+            onChangeText={this.setInitials}
           />
 
           <Text>Password</Text>
