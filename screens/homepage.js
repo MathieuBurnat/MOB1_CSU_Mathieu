@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
 
 class Homepage extends React.Component {
+
   render() {
     return (
       <View style={styles.container}>

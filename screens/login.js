@@ -61,6 +61,9 @@ class Login extends Component {
       console.log(response);
       this.setState({message : ""});
 
+      localStorage.setItem("isLogged", "true");
+      console.log(localStorage.getItem("isLogged"));
+
     }, (error) => {
       console.log(error);
       this.setState({message : "The login or the password is wrong. "});

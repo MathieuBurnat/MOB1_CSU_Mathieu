@@ -21,12 +21,15 @@ import Login from "./screens/login";
 const Stack = createStackNavigator();
 
 class app extends Component {
+
   render() {
+    //let {isLogged} = localStorage.getItem("isLogged");
+
     return (
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="homepage" component={Homepage} />
-          <Stack.Screen name="login" component={Login} />
+          <Stack.Screen name="login" component={Login} options={{headerShown: true}} />
           <Stack.Screen name="info" component={Info} />
         </Stack.Navigator>
       </NavigationContainer>
