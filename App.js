@@ -1,53 +1,53 @@
-import 'react-native-gesture-handler';
+import "react-native-gesture-handler";
 
-import { StatusBar } from 'expo-status-bar';
-import React, { Component } from 'react';
-import { Text, StyleSheet, TextInput, View, SafeAreaView, Button} from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import React, { Component } from "react";
+import {
+  Text,
+  StyleSheet,
+  TextInput,
+  View,
+  SafeAreaView,
+  Button,
+} from "react-native";
 
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
-import Homepage from './screens/homepage';
-import Info from './screens/info';
-import Login from './screens/login';
+import Homepage from "./screens/homepage";
+import Info from "./screens/info";
+import Login from "./screens/login";
+import Disconnect from "./screens/disconnect";
 
 const Stack = createStackNavigator();
 
 class app extends Component {
 
+  render() {
+    //let {isLogged} = localStorage.getItem("isLogged");
 
-  render(){
     return (
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen
-                name="homepage"
-                component={Homepage}
-          />
-          <Stack.Screen
-            name="login"
-            component={Login}
-          />
-          <Stack.Screen
-              name="info"
-              component={Info}
-          />
+          <Stack.Screen name="homepage" component={Homepage} />
+          <Stack.Screen name="login" component={Login} options={{headerShown: true}} />
+          <Stack.Screen name="info" component={Info} />
+          <Stack.Screen name="disconnect" component={Disconnect} />
         </Stack.Navigator>
-    </NavigationContainer>
+      </NavigationContainer>
     );
   }
 }
 
 export default app;
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "column"
+    flexDirection: "column",
   },
-  border:{
+  border: {
     borderStyle: "solid",
-    borderWidth: "thin"
-  }
+    borderWidth: "thin",
+  },
 });
