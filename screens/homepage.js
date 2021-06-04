@@ -17,7 +17,12 @@ class Homepage extends React.Component {
     // Handle focus, in case of back button hit
     this.props.navigation.addListener("focus", () => {
       //Set user data to the user
-      this.setState({ user : { token : localStorage.getItem("token"), initials : localStorage.getItem("initials")} });
+      this.setState({
+        user: {
+          token: localStorage.getItem("token"),
+          initials: localStorage.getItem("initials"),
+        },
+      });
     });
   }
 
@@ -28,18 +33,16 @@ class Homepage extends React.Component {
     //If the user is connected
     // => Set a welcome message
     // => Set the "login button" to a "disconnect button"
-    if(this.state.user.token){
-        message = (
-          <Text> Welcome {this.state.user.initials} !! </Text>
-        );
+    if (this.state.user.token) {
+      message = <Text> Welcome {this.state.user.initials} !! </Text>;
 
-        authButton = (
-          <Button
-            title="Se déconnecter"
-            onPress={() => this.props.navigation.navigate("disconnect")}
-          />
-        );
-    }else{
+      authButton = (
+        <Button
+          title="Se déconnecter"
+          onPress={() => this.props.navigation.navigate("disconnect")}
+        />
+      );
+    } else {
       authButton = (
         <Button
           title="Se connecter"
@@ -51,13 +54,15 @@ class Homepage extends React.Component {
     return (
       <View style={styles.container}>
         <Text> Welcome </Text>
+
         {authButton}
+
         <Button
           title="Info"
           onPress={() => this.props.navigation.navigate("info")}
         />
 
-        {message} 
+        {message}
       </View>
     );
   }
