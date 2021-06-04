@@ -36,7 +36,6 @@ class Login extends Component {
         initials,
       },
     });
-    console.log(this.state.user);
   }
 
   setPassword(password) {
@@ -46,24 +45,20 @@ class Login extends Component {
         password,
       },
     });
-    console.log(this.state.user);
   }
 
   login = () =>
   {
-    console.log(this.state.user);
-
     axios.post('http://127.0.0.1:8000/api/gettoken', {
       initials: this.state.user.initials,
       password: this.state.user.password,
     })
     .then((response) => {
-      console.log(response);
 
-      localStorage.setItem("isLogged", true);
-      this.setState({message : "Grangradulation : You are now logged-in ! "});
+      localStorage.setItem("initials", this.state.user.initials);
+      localStorage.setItem("token", response.data.token);
+
       this.props.navigation.navigate("homepage");
-
     }, (error) => {
       console.log(error);
       this.setState({message : "The login or the password is wrong. "});

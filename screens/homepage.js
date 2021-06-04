@@ -6,7 +6,10 @@ class Homepage extends React.Component {
     super(props);
 
     this.state = {
-      isLogged: localStorage.getItem("isLogged"),
+      user: {
+        token: "",
+        initials: "",
+      },
     };
 
     let message;
@@ -15,17 +18,19 @@ class Homepage extends React.Component {
   componentDidMount() {
     // Handle focus, in case of back button hit
     this.props.navigation.addListener("focus", () => {
-      this.setState({isLogged : localStorage.getItem("isLogged")});
+      //Set user data to the user
+      this.setState({ user : { token : localStorage.getItem("token"), initials : localStorage.getItem("initials")} });
     });
   }
 
   render() {
-
-    if (localStorage.getItem("isLogged")){
-      this.message = "you'r logged in !"
-    }else{
+    if(this.state.user){
+        this.message = "you'r logged in !"
+    }
+    else{
       this.message = "Nop"
     }
+
 
     return (
       <View style={styles.container}>
