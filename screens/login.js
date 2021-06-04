@@ -59,10 +59,10 @@ class Login extends Component {
     })
     .then((response) => {
       console.log(response);
-      this.setState({message : ""});
 
-      localStorage.setItem("isLogged", "true");
-      console.log(localStorage.getItem("isLogged"));
+      localStorage.setItem("isLogged", true);
+      this.setState({message : "Grangradulation : You are now logged-in ! "});
+      this.props.navigation.navigate("homepage");
 
     }, (error) => {
       console.log(error);
