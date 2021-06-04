@@ -11,8 +11,6 @@ class Homepage extends React.Component {
         initials: "",
       },
     };
-
-    let message;
   }
 
   componentDidMount() {
@@ -24,25 +22,42 @@ class Homepage extends React.Component {
   }
 
   render() {
+    let authButton;
+    let message;
+
+    //If the user is connected
+    // => Set a welcome message
+    // => Set the "login button" to a "disconnect button"
     if(this.state.user.token){
-        this.message = (
-        <Text> Welcome {this.state.user.initials} !! </Text>
+        message = (
+          <Text> Welcome {this.state.user.initials} !! </Text>
         );
+
+        authButton = (
+          <Button
+            title="Se déconnecter"
+            onPress={() => this.props.navigation.navigate("disconnect")}
+          />
+        );
+    }else{
+      authButton = (
+        <Button
+          title="Se connecter"
+          onPress={() => this.props.navigation.navigate("login")}
+        />
+      );
     }
 
     return (
       <View style={styles.container}>
         <Text> Welcome </Text>
-        <Button
-          title="Se connecter"
-          onPress={() => this.props.navigation.navigate("login")}
-        />
+        {authButton}
         <Button
           title="Info"
           onPress={() => this.props.navigation.navigate("info")}
         />
-        
-        {this.message} 
+
+        {message} 
       </View>
     );
   }

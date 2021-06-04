@@ -17,6 +17,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Homepage from "./screens/homepage";
 import Info from "./screens/info";
 import Login from "./screens/login";
+import Disconnect from "./screens/disconnect";
 
 const Stack = createStackNavigator();
 
@@ -31,6 +32,7 @@ class app extends Component {
           <Stack.Screen name="homepage" component={Homepage} />
           <Stack.Screen name="login" component={Login} options={{headerShown: true}} />
           <Stack.Screen name="info" component={Info} />
+          <Stack.Screen name="disconnect" component={Disconnect} />
         </Stack.Navigator>
       </NavigationContainer>
     );

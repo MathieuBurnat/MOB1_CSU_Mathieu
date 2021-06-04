@@ -54,7 +54,6 @@ class Login extends Component {
       password: this.state.user.password,
     })
     .then((response) => {
-
       localStorage.setItem("initials", this.state.user.initials.toUpperCase());
       localStorage.setItem("token", response.data.token);
       console.log(response);
