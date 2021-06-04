@@ -55,9 +55,10 @@ class Login extends Component {
     })
     .then((response) => {
 
-      localStorage.setItem("initials", this.state.user.initials);
+      localStorage.setItem("initials", this.state.user.initials.toUpperCase());
       localStorage.setItem("token", response.data.token);
-
+      console.log(response);
+      
       this.props.navigation.navigate("homepage");
     }, (error) => {
       console.log(error);

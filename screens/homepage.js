@@ -24,13 +24,11 @@ class Homepage extends React.Component {
   }
 
   render() {
-    if(this.state.user){
-        this.message = "you'r logged in !"
+    if(this.state.user.token){
+        this.message = (
+        <Text> Welcome {this.state.user.initials} !! </Text>
+        );
     }
-    else{
-      this.message = "Nop"
-    }
-
 
     return (
       <View style={styles.container}>
@@ -43,7 +41,8 @@ class Homepage extends React.Component {
           title="Info"
           onPress={() => this.props.navigation.navigate("info")}
         />
-        <Text> {this.message} </Text>
+        
+        {this.message} 
       </View>
     );
   }
