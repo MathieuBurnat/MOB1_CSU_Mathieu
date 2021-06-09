@@ -32,37 +32,38 @@ class app extends Component {
       },
     };
   }
-  
+
   render() {
     //let {isLogged} = localStorage.getItem("isLogged");
     //If the user is connected
     // -> Then he could access to the special pages
-    
-    let navigationStacks;
-    if (this.state.user.token) {
-      navigationStacks = (
-        <Stack.Navigator>
-          <Stack.Screen name="homepage" component={Homepage} />
-          <Stack.Screen name="login" component={Login} options={{headerShown: true}} />
-          <Stack.Screen name="info" component={Info} />
-          <Stack.Screen name="disconnect" component={Disconnect} />
-        </Stack.Navigator>
-      );
-      }else{ //The user is not connected
-        navigationStacks = (
-          <Stack.Navigator>
-          <Stack.Screen name="login" component={Login} options={{headerShown: true}} />
-          <Stack.Screen name="homepage" component={Homepage} />
-          </Stack.Navigator>
-        );
-      }
-
-
+    // Doc interesting here 
+    // https://reactnavigation.org/docs/auth-flow/
     return (
-        <NavigationContainer>
-          {navigationStacks}
-        </NavigationContainer>
-      );
+
+      this.state.user.token ? (
+        <>
+          <NavigationContainer>
+            <Stack.Navigator>
+              <Stack.Screen name="login" component={Login} options={{ headerShown: true }} />
+              <Stack.Screen name="homepage" component={Homepage} />
+            </Stack.Navigator>
+          </NavigationContainer>
+
+        </>
+      ) : (
+        <>
+          <NavigationContainer>
+            <Stack.Navigator>
+              <Stack.Screen name="homepage" component={Homepage} />
+              <Stack.Screen name="login" component={Login} options={{ headerShown: true }} />
+              <Stack.Screen name="info" component={Info} />
+              <Stack.Screen name="disconnect" component={Disconnect} />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </>
+      )
+    );
   }
 }
 
