@@ -37,10 +37,21 @@ class Homepage extends React.Component {
       message = <Text> Welcome {this.state.user.initials} !! </Text>;
 
       authButton = (
-        <Button
-          title="Se déconnecter"
-          onPress={() => this.props.navigation.navigate("disconnect")}
-        />
+        <View>
+          <Button
+            title="Se déconnecter"
+            onPress={() => this.props.navigation.navigate("disconnect")}
+          />
+          <Button
+            title="Voir les consultations"
+            onPress={() => this.props.navigation.navigate("consultation")}
+          />
+          <Button
+            title="Voir les rapports"
+            onPress={() => this.props.navigation.navigate("rapport")}
+          />
+        </View>
+
       );
     } else {
       authButton = (

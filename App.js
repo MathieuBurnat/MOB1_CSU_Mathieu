@@ -18,6 +18,8 @@ import Homepage from "./screens/homepage";
 import Info from "./screens/info";
 import Login from "./screens/login";
 import Disconnect from "./screens/disconnect";
+import Rapport from "./screens/rapport/rapport";
+import Consultation from "./screens/consultation/consultation";
 
 const Stack = createStackNavigator();
 
@@ -57,8 +59,10 @@ class app extends Component {
             <Stack.Navigator>
               <Stack.Screen name="homepage" component={Homepage} />
               <Stack.Screen name="login" component={Login} options={{ headerShown: true }} />
-              <Stack.Screen name="info" component={Info} />
               <Stack.Screen name="disconnect" component={Disconnect} />
+              <Stack.Screen name="info" component={Info} />
+              <Stack.Screen name="rapport" component={Rapport} />
+              <Stack.Screen name="consultation" component={Consultation} />
             </Stack.Navigator>
           </NavigationContainer>
         </>
