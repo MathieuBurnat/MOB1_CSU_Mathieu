@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
 import axios from "axios";
+import { LoginContext } from '../component/login/loginContext'; 
 
 import {
   Text,
@@ -58,6 +59,8 @@ class Login extends Component {
       localStorage.setItem("token", response.data.token);
       console.log(response);
       
+      this.context.changeToken(response.data.token);
+
       this.props.navigation.navigate("homepage");
     }, (error) => {
       console.log(error);
@@ -89,18 +92,21 @@ class Login extends Component {
             onChangeText={this.setPassword}
           />
 
+          <SelectCities/>
+
           <Button
             title="Login"
             onPress={this.login}
           />
 
-          <SelectCities></SelectCities>
         </SafeAreaView>
         <Text> {this.state.message} </Text>
       </View>
     );
   }
 }
+
+Login.contextType = LoginContext;
 
 export default Login;
 

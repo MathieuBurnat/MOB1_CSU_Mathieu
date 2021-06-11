@@ -17,6 +17,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Homepage from "./screens/homepage";
 import Info from "./screens/info";
 import Login from "./screens/login";
+import { LoginContext } from "./component/login/loginContext";
+
 import Disconnect from "./screens/disconnect";
 
 import Consultation from "./screens/consultation/consultation";
@@ -34,49 +36,60 @@ class app extends Component {
     super(props);
 
     this.state = {
-      user: {
-        token: localStorage.getItem("token"),
-        initials: localStorage.getItem("initials"),
-      },
+      token : localStorage.getItem("token"),
     };
   }
+
+  changeToken = (token) => {
+    this.setState({
+      token: token,
+    });
+  };
 
   render() {
     //let {isLogged} = localStorage.getItem("isLogged");
     //If the user is connected
     // -> Then he could access to the special pages
-    // Doc interesting here 
+    // Doc interesting here
     // https://reactnavigation.org/docs/auth-flow/
     return (
-
-      this.state.user.token ? (
-        <>
-          <NavigationContainer>
-            <Stack.Navigator>
-              <Stack.Screen name="login" component={Login} options={{ headerShown: true }} />
-              <Stack.Screen name="homepage" component={Homepage} />
-            </Stack.Navigator>
-          </NavigationContainer>
-
-        </>
-      ) : (
-        <>
-          <NavigationContainer>
-            <Stack.Navigator>
-              <Stack.Screen name="homepage" component={Homepage} />
-              <Stack.Screen name="login" component={Login} options={{ headerShown: true }} />
-              <Stack.Screen name="disconnect" component={Disconnect} />
-              <Stack.Screen name="info" component={Info} />
-              <Stack.Screen name="rapport" component={Rapport} />
-              <Stack.Screen name="consultation" component={Consultation} />
-              <Stack.Screen name="guard" component={Guard} />
-              <Stack.Screen name="stup" component={Stup} />
-              <Stack.Screen name="pharmacheck" component={Pharmacheck} />
-              <Stack.Screen name="novacheck" component={Novacheck} />
-            </Stack.Navigator>
-          </NavigationContainer>
-        </>
-      )
+      <LoginContext.Provider
+        value={{
+          changeToken: this.changeToken,
+        }}
+      >
+        <NavigationContainer>
+          <Stack.Navigator>
+            {this.state.token == null ? (
+              <>
+                <Stack.Screen
+                  name="login"
+                  component={Login}
+                  options={{ headerShown: true }}
+                />
+                <Stack.Screen name="homepage" component={Homepage} />
+              </>
+            ) : (
+              <>
+                <Stack.Screen name="homepage" component={Homepage} />
+                <Stack.Screen
+                  name="login"
+                  component={Login}
+                  options={{ headerShown: true }}
+                />
+                <Stack.Screen name="disconnect" component={Disconnect} />
+                <Stack.Screen name="info" component={Info} />
+                <Stack.Screen name="rapport" component={Rapport} />
+                <Stack.Screen name="consultation" component={Consultation} />
+                <Stack.Screen name="guard" component={Guard} />
+                <Stack.Screen name="stup" component={Stup} />
+                <Stack.Screen name="pharmacheck" component={Pharmacheck} />
+                <Stack.Screen name="novacheck" component={Novacheck} />
+              </>
+            )}
+          </Stack.Navigator>
+        </NavigationContainer>
+      </LoginContext.Provider>
     );
   }
 }
