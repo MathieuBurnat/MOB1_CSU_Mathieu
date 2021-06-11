@@ -8,8 +8,8 @@ class Consultation extends React.Component {
         <Text> Consultation </Text>
 
         <Button
-          title="Consultation"
-          onPress={() => this.props.navigation.navigate("consultation")}
+          title="Homepage"
+          onPress={() => this.props.navigation.navigate("homepage")}
         />
         <Button
           title="Stup"

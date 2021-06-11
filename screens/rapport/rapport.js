@@ -11,6 +11,14 @@ class Rapport extends React.Component {
           title="Homepage"
           onPress={() => this.props.navigation.navigate("homepage")}
         />
+        <Button
+          title="novacheck"
+          onPress={() => this.props.navigation.navigate("novacheck")}
+        />
+        <Button
+          title="pharmacheck"
+          onPress={() => this.props.navigation.navigate("pharmacheck")}
+        />
       </View>
     );
   }

@@ -1,15 +1,15 @@
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
 
-class Pharmacheck extends React.Component {
+class Guard extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text> Pharmacheck </Text>
+        <Text> Garde </Text>
 
         <Button
-          title="Consultation"
-          onPress={() => this.props.navigation.navigate("consultation")}
+          title="Rapport"
+          onPress={() => this.props.navigation.navigate("rapport")}
         />
 
         <Button
@@ -30,4 +30,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Pharmacheck;
+export default Guard;

@@ -1,17 +1,19 @@
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
 
-class Pharmacheck extends React.Component {
+class Novacheck extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text> Pharmacheck </Text>
+        <Text> Stup </Text>
+
 
         <Button
-          title="Consultation"
-          onPress={() => this.props.navigation.navigate("consultation")}
+          title="Rapport"
+          onPress={() => this.props.navigation.navigate("rapport")}
         />
 
+        
         <Button
           title="Homepage"
           onPress={() => this.props.navigation.navigate("homepage")}
@@ -30,4 +32,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Pharmacheck;
+export default Novacheck;

@@ -18,10 +18,14 @@ import Homepage from "./screens/homepage";
 import Info from "./screens/info";
 import Login from "./screens/login";
 import Disconnect from "./screens/disconnect";
-import Rapport from "./screens/rapport/rapport";
+
 import Consultation from "./screens/consultation/consultation";
 import Guard from "./screens/consultation/Guard";
 import Stup from "./screens/consultation/Stup";
+
+import Rapport from "./screens/rapport/rapport";
+import Pharmacheck from "./screens/rapport/pharmacheck";
+import Novacheck from "./screens/rapport/novacheck";
 
 const Stack = createStackNavigator();
 
@@ -67,6 +71,8 @@ class app extends Component {
               <Stack.Screen name="consultation" component={Consultation} />
               <Stack.Screen name="guard" component={Guard} />
               <Stack.Screen name="stup" component={Stup} />
+              <Stack.Screen name="pharmacheck" component={Pharmacheck} />
+              <Stack.Screen name="novacheck" component={Novacheck} />
             </Stack.Navigator>
           </NavigationContainer>
         </>

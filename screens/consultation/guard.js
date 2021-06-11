@@ -8,6 +8,10 @@ class Guard extends React.Component {
         <Text> Garde </Text>
 
         <Button
+          title="Consultation"
+          onPress={() => this.props.navigation.navigate("consultation")}
+        />
+        <Button
           title="Homepage"
           onPress={() => this.props.navigation.navigate("homepage")}
         />
