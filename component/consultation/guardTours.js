@@ -1,6 +1,9 @@
 import React from "react";
 import myApi from "../../API/api";
-import { Text } from "react-native";
+
+import { Text, StyleSheet } from "react-native";
+import { Card, ListItem, Button, Icon } from 'react-native-elements'
+
 import { FlatList } from "react-native-gesture-handler";
 
 class GuardTours extends React.Component {
@@ -22,13 +25,18 @@ class GuardTours extends React.Component {
     });
   }
 
-  renderItem({item}){
-    return <Text> {item.base} {item.date} </Text>;
-  } 
+  renderItem({ item }) {
+    let card = (
+      <Card>
+         <Text> Le {item.date} à {item.base} </Text>
+      </Card>
+    );
+    return card;
+  }
 
   render() {
     return (
-      <FlatList
+      <FlatList style={styles.items}
         data={this.state.data.shift}
         renderItem={this.renderItem}
         keyExtractor={(item) => item.id}
@@ -38,3 +46,9 @@ class GuardTours extends React.Component {
 }
 
 export default GuardTours;
+
+const styles = StyleSheet.create({
+  items: {
+    width: "100%",
+  },
+});
