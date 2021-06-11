@@ -78,7 +78,7 @@ class app extends Component {
                 <Stack.Screen name="rapport" component={Rapport} />
                 <Stack.Screen name="consultation" component={Consultation} />
                 <Stack.Screen name="shifts" component={Shift} />
-                <Stack.Screen name="shiftDetail" component={ShiftDetail} />
+                <Stack.Screen name="shiftDetail" component={ShiftDetail}/>
                 <Stack.Screen name="stup" component={Stup} />
                 <Stack.Screen name="pharmacheck" component={Pharmacheck} />
                 <Stack.Screen name="novacheck" component={Novacheck} />

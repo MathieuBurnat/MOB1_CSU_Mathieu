@@ -2,7 +2,8 @@ import React from "react";
 import myApi from "../../API/api";
 
 import { Text, StyleSheet } from "react-native";
-import { Card, ListItem, Button, Icon } from 'react-native-elements'
+import { Card, ListItem, Button } from 'react-native-elements'
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { FlatList } from "react-native-gesture-handler";
 
@@ -28,7 +29,21 @@ class GuardTours extends React.Component {
   renderItem({ item }) {
     let card = (
       <Card>
-         <Text> Le {item.date} à {item.base} </Text>
+        <Text> Le {item.date} à {item.base}
+          <Button style={styles.detailBtn}
+
+            icon={
+              <Icon
+                name="search"
+                size={15}
+                color="white"
+              />
+            }
+
+            onPress={() => this.props.navigation.navigate("shiftDetail")}
+          />
+        </Text>
+
       </Card>
     );
     return card;
@@ -51,4 +66,7 @@ const styles = StyleSheet.create({
   items: {
     width: "100%",
   },
+  detailBtn: {
+    width: "5%",
+  }
 });
