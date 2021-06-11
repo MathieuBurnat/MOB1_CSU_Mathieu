@@ -1,12 +1,13 @@
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
-
+import GuardTours from "../../component/consultation/guardTours";
 class Guard extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text> Garde </Text>
 
+        <Text> Garde(s) </Text>
+        
         <Button
           title="Consultation"
           onPress={() => this.props.navigation.navigate("consultation")}
@@ -15,6 +16,9 @@ class Guard extends React.Component {
           title="Homepage"
           onPress={() => this.props.navigation.navigate("homepage")}
         />
+
+        <GuardTours> </GuardTours>
+
       </View>
     );
   }
