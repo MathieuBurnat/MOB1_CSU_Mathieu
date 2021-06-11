@@ -11,10 +11,11 @@ class GuardTours extends React.Component {
   }
 
   componentDidMount() {
-    myApi.getDataFromReports().then((res) => {
+    myApi.getDataFromReports(localStorage.getItem("token")).then((res) => {
       this.setState({
         data: res.data,
       });
+      console.log(this.state.data);
     });
   }
 
