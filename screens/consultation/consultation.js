@@ -15,7 +15,7 @@ class Consultation extends React.Component {
 
         <Button
           title="Garde"
-          onPress={() => this.props.navigation.navigate("guard")}
+          onPress={() => this.props.navigation.navigate("shifts")}
         />
         
         <Button
