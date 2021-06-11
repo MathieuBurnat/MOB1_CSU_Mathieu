@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
-import GuardTours from "../../component/consultation/guardTours";
+import ShiftsList from "../../component/consultation/shiftsList";
 class Guard extends React.Component {
   render() {
     return (
@@ -17,7 +17,7 @@ class Guard extends React.Component {
           onPress={() => this.props.navigation.navigate("homepage")}
         />
 
-        <GuardTours> </GuardTours>
+        <ShiftsList> </ShiftsList>
 
       </View>
     );
