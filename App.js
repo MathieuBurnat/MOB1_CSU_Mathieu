@@ -2,14 +2,8 @@ import "react-native-gesture-handler";
 
 import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
-import {
-  Text,
-  StyleSheet,
-  TextInput,
-  View,
-  SafeAreaView,
-  Button,
-} from "react-native";
+import { Text, StyleSheet, TextInput, View, SafeAreaView, Button, } from "react-native";
+
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -36,7 +30,7 @@ class app extends Component {
     super(props);
 
     this.state = {
-      token : localStorage.getItem("token"),
+      token: localStorage.getItem("token"),
     };
   }
 
