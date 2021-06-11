@@ -5,16 +5,19 @@ class Rapport extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text> Rapport </Text>
-
         <Button
           title="Homepage"
           onPress={() => this.props.navigation.navigate("homepage")}
         />
+
+        <Text> Faire un </Text>
+
+
         <Button
           title="novacheck"
           onPress={() => this.props.navigation.navigate("novacheck")}
         />
+        
         <Button
           title="pharmacheck"
           onPress={() => this.props.navigation.navigate("pharmacheck")}
