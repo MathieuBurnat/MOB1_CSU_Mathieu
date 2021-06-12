@@ -1,7 +1,7 @@
 import React from "react";
 import myApi from "../../API/api";
 
-import { Text, StyleSheet } from "react-native";
+import { Text, StyleSheet, View } from "react-native";
 import { Card, ListItem, Button } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -37,11 +37,16 @@ class ActionsList extends React.Component {
 
   render() {
     return (
-      <FlatList style={styles.items}
-        data={this.state.data}
-        renderItem={this.renderItem}
-        keyExtractor={(item) => item.id}
-      />
+      <View>
+        {this.state.data != null ? (
+          <FlatList style={styles.items}
+            data={this.state.data}
+            renderItem={this.renderItem}
+            keyExtractor={(item) => item.id}
+          />) : (
+          <Text> Any</Text>
+        )}
+      </View>
     );
   }
 }
@@ -51,8 +56,5 @@ export default ActionsList;
 const styles = StyleSheet.create({
   items: {
     width: "100%",
-  },
-  detailBtn: {
-    width: "5%",
   }
 });
