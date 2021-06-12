@@ -2,14 +2,8 @@ import "react-native-gesture-handler";
 
 import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
-import {
-  Text,
-  StyleSheet,
-  TextInput,
-  View,
-  SafeAreaView,
-  Button,
-} from "react-native";
+import { Text, StyleSheet, TextInput, View, SafeAreaView, Button, } from "react-native";
+
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -22,7 +16,9 @@ import { LoginContext } from "./component/login/loginContext";
 import Disconnect from "./screens/disconnect";
 
 import Consultation from "./screens/consultation/consultation";
-import Guard from "./screens/consultation/Guard";
+import Shift from "./screens/consultation/shift";
+import ShiftDetail from "./screens/consultation/shiftDetails";
+
 import Stup from "./screens/consultation/Stup";
 
 import Rapport from "./screens/rapport/rapport";
@@ -36,7 +32,7 @@ class app extends Component {
     super(props);
 
     this.state = {
-      token : localStorage.getItem("token"),
+      token: localStorage.getItem("token"),
     };
   }
 
@@ -81,7 +77,8 @@ class app extends Component {
                 <Stack.Screen name="info" component={Info} />
                 <Stack.Screen name="rapport" component={Rapport} />
                 <Stack.Screen name="consultation" component={Consultation} />
-                <Stack.Screen name="guard" component={Guard} />
+                <Stack.Screen name="shifts" component={Shift} />
+                <Stack.Screen name="shiftDetail" component={ShiftDetail}/>
                 <Stack.Screen name="stup" component={Stup} />
                 <Stack.Screen name="pharmacheck" component={Pharmacheck} />
                 <Stack.Screen name="novacheck" component={Novacheck} />

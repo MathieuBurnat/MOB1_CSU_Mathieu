@@ -1,12 +1,13 @@
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
-
-class Guard extends React.Component {
+import ShiftsList from "../../component/consultation/shiftsList";
+class Shift extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text> Garde </Text>
 
+        <Text> Garde(s) </Text>
+        
         <Button
           title="Consultation"
           onPress={() => this.props.navigation.navigate("consultation")}
@@ -15,6 +16,9 @@ class Guard extends React.Component {
           title="Homepage"
           onPress={() => this.props.navigation.navigate("homepage")}
         />
+
+        <ShiftsList navigation={this.props.navigation}> </ShiftsList>
+
       </View>
     );
   }
@@ -29,4 +33,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Guard;
+export default Shift;

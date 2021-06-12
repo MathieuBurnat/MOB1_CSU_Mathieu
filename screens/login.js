@@ -12,7 +12,7 @@ import {
   Button,
 } from "react-native";
 
-import SelectCities from "../component/SelectCities.js";
+import SelectCities from "../component/login/SelectCities.js";
 
 class Login extends Component {
   constructor(props) {

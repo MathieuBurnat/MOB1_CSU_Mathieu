@@ -1,5 +1,5 @@
 import React from "react";
-import myApi from "../API/api.js";
+import myApi from "../../API/api";
 import { Picker } from "@react-native-picker/picker";
 
 export default class SelectCities extends React.Component {
