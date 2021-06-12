@@ -7,7 +7,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { FlatList } from "react-native-gesture-handler";
 
-class GuardTours extends React.Component {
+class ShiftsList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -59,7 +59,7 @@ class GuardTours extends React.Component {
   }
 }
 
-export default GuardTours;
+export default ShiftsList;
 
 const styles = StyleSheet.create({
   items: {

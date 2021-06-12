@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
 
-class Guard extends React.Component {
+class Pharmacheck extends React.Component {
   render() {
     return (
       <View style={styles.container}>
@@ -30,4 +30,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Guard;
+export default Pharmacheck;

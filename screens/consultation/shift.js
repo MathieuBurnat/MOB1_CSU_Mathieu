@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
 import ShiftsList from "../../component/consultation/shiftsList";
-class Guard extends React.Component {
+class Shift extends React.Component {
   render() {
     return (
       <View style={styles.container}>
@@ -33,4 +33,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Guard;
+export default Shift;
