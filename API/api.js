@@ -7,8 +7,6 @@ class API {
   }
 
   getReports(token) {
-    console.log("My token : ", token);
-
     return axios
       .get("http://localhost:8000/api/reports", {
         headers: {

@@ -36,8 +36,6 @@ class ActionsList extends React.Component {
   }
 
   render() {
-    console.log(this.state.data.length);
-    
     return (
       <View>
         {this.state.data.length != 0 ? (
