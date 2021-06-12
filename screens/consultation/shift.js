@@ -17,7 +17,7 @@ class Guard extends React.Component {
           onPress={() => this.props.navigation.navigate("homepage")}
         />
 
-        <ShiftsList> </ShiftsList>
+        <ShiftsList navigation={this.props.navigation}> </ShiftsList>
 
       </View>
     );

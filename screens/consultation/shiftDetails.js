@@ -8,15 +8,11 @@ class ShiftDetail extends React.Component {
     this.state = {
       data: [],
     };
-
-    this.renderItem = this.renderItem.bind(this);
   }
 
   render() {
-    console.log(this.props.route.params);
-
     return (
-      <Text> Here is the shift detailed  {this.props.route.params.test}</Text>
+      <Text> Here is the shift detailed :</Text>
     );
   }
 }
