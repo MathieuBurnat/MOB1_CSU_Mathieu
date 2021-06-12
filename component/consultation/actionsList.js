@@ -36,15 +36,17 @@ class ActionsList extends React.Component {
   }
 
   render() {
+    console.log(this.state.data.length);
+    
     return (
       <View>
-        {this.state.data != null ? (
+        {this.state.data.length != 0 ? (
           <FlatList style={styles.items}
             data={this.state.data}
             renderItem={this.renderItem}
             keyExtractor={(item) => item.id}
           />) : (
-          <Text> Any</Text>
+          <Text> Aucunes actions n'ont été comtabilisées durant cette journée. </Text>
         )}
       </View>
     );
