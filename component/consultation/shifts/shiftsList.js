@@ -18,7 +18,7 @@ class ShiftsList extends React.Component {
   }
 
   componentDidMount() {
-    myApi.getDataFromReports(localStorage.getItem("token")).then((res) => {
+    myApi.getReports(localStorage.getItem("token")).then((res) => {
       this.setState({
         data: res.data,
       });

@@ -11,7 +11,7 @@ export default class SelectCities extends React.Component {
   }
 
   componentDidMount() {
-    myApi.getDataFromBase().then((res) => {
+    myApi.getCities().then((res) => {
       this.setState({
         data: res.data,
       });
