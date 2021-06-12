@@ -15,7 +15,6 @@ class GuardTours extends React.Component {
     };
 
     this.renderItem = this.renderItem.bind(this);
-    this.showShift = this.showShift.bind(this);
   }
 
   componentDidMount() {
@@ -26,11 +25,6 @@ class GuardTours extends React.Component {
       console.log(this.state.data.shift);
     });
   }
-
-  showShift(){
-    console.log("wanna get a ride ?");
-    this.props.navigation.navigate("shiftDetail");
-    }
 
   renderItem({ item }) {
     let card = (
@@ -46,7 +40,7 @@ class GuardTours extends React.Component {
               />
             }
 
-            onPress={() => this.showShift()}
+            onPress={() => this.props.navigation.navigate("shiftDetail")}
           />
         </Text>
 
