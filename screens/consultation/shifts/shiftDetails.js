@@ -1,7 +1,7 @@
 import React from "react";
 
 import { StyleSheet, Text, View, Button } from "react-native";
-import ActionsList from "../../component/consultation/actionsList";
+import ActionsList from "../../../component/consultation/shifts/actionsList";
 class ShiftDetail extends React.Component {
   constructor(props) {
     super(props);

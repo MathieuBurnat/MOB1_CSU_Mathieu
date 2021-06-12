@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
-import ShiftsList from "../../component/consultation/shiftsList";
+import ShiftsList from "../../../component/consultation/shifts/shiftsList";
 class Shift extends React.Component {
   render() {
     return (

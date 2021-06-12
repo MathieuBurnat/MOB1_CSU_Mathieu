@@ -16,10 +16,10 @@ import { LoginContext } from "./component/login/loginContext";
 import Disconnect from "./screens/disconnect";
 
 import Consultation from "./screens/consultation/consultation";
-import Shift from "./screens/consultation/shift";
-import ShiftDetail from "./screens/consultation/shiftDetails";
+import Shift from "./screens/consultation/shifts/shift";
+import ShiftDetail from "./screens/consultation/shifts/shiftDetails";
 
-import Stup from "./screens/consultation/Stup";
+import Stup from "./screens/consultation/drugs/stup";
 
 import Rapport from "./screens/rapport/rapport";
 import Pharmacheck from "./screens/rapport/pharmacheck";
