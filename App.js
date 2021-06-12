@@ -54,8 +54,19 @@ class app extends Component {
           changeToken: this.changeToken,
         }}
       >
-        <NavigationContainer>
-          <Stack.Navigator>
+        <NavigationContainer   >
+          <Stack.Navigator
+            screenOptions={{
+              headerStyle: {
+                backgroundColor: '#3f51b5',
+              },
+              headerTintColor: '#fff',
+              headerTitleStyle: {
+                fontWeight: 'bold',
+              },
+            }}
+            
+            >
             {this.state.token == null ? (
               <>
                 <Stack.Screen
@@ -78,7 +89,7 @@ class app extends Component {
                 <Stack.Screen name="rapport" component={Rapport} />
                 <Stack.Screen name="consultation" component={Consultation} />
                 <Stack.Screen name="shifts" component={Shift} />
-                <Stack.Screen name="shiftDetail" component={ShiftDetail}/>
+                <Stack.Screen name="shiftDetail" component={ShiftDetail} />
                 <Stack.Screen name="stup" component={Stup} />
                 <Stack.Screen name="pharmacheck" component={Pharmacheck} />
                 <Stack.Screen name="novacheck" component={Novacheck} />
