@@ -16,6 +16,15 @@ class API {
         },
       })
   }
+
+  getMyactionsInShift(token, id) {
+    return axios
+      .get("http://127.0.0.1:8000/api/myactionsinshift/"+id, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+  }
 }
 
 const myApi = new API();

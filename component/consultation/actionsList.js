@@ -7,7 +7,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { FlatList } from "react-native-gesture-handler";
 
-class GuardTours extends React.Component {
+class ActionsList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,9 +18,9 @@ class GuardTours extends React.Component {
   }
 
   componentDidMount() {
-    myApi.getDataFromReports(localStorage.getItem("token")).then((res) => {
+    myApi.getMyactionsInShift(localStorage.getItem("token"), this.props.item.id).then((res) => {
       this.setState({
-        data: res.data,
+        data: res.data.data,
       });
     });
   }
@@ -28,21 +28,8 @@ class GuardTours extends React.Component {
   renderItem({ item }) {
     let card = (
       <Card>
-        <Text> Le {item.date} à {item.base}
-          <Button style={styles.detailBtn}
-
-            icon={
-              <Icon
-                name="search"
-                size={15}
-                color="white"
-              />
-            }
-
-            onPress={() => this.props.navigation.navigate("shiftDetail", {item})}
-          />
-        </Text>
-
+        <Text> [Jour : {item.day} à {item.at}] </Text>
+        <Text> - {item.action}- </Text>
       </Card>
     );
     return card;
@@ -51,7 +38,7 @@ class GuardTours extends React.Component {
   render() {
     return (
       <FlatList style={styles.items}
-        data={this.state.data.shift}
+        data={this.state.data}
         renderItem={this.renderItem}
         keyExtractor={(item) => item.id}
       />
@@ -59,7 +46,7 @@ class GuardTours extends React.Component {
   }
 }
 
-export default GuardTours;
+export default ActionsList;
 
 const styles = StyleSheet.create({
   items: {
