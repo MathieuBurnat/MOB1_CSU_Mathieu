@@ -75,7 +75,6 @@ class app extends Component {
                 ) : (
                   <Icon/>
                 )
-
               ),
             })}
           >

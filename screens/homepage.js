@@ -39,10 +39,6 @@ class Homepage extends React.Component {
       authButton = (
         <View>
           <Button
-            title="Se déconnecter"
-            onPress={() => this.props.navigation.navigate("disconnect")}
-          />
-          <Button
             title="Voir les consultations"
             onPress={() => this.props.navigation.navigate("consultation")}
           />
@@ -51,7 +47,6 @@ class Homepage extends React.Component {
             onPress={() => this.props.navigation.navigate("rapport")}
           />
         </View>
-
       );
     } else {
       authButton = (
