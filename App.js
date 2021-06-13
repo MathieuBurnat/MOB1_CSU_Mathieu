@@ -7,6 +7,7 @@ import { Text, StyleSheet, TextInput, View, SafeAreaView, Button, } from "react-
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import Homepage from "./screens/homepage";
 import Info from "./screens/info";
@@ -56,7 +57,7 @@ class app extends Component {
       >
         <NavigationContainer   >
           <Stack.Navigator
-            screenOptions={{
+            screenOptions={({ navigation }) => ({
               headerStyle: {
                 backgroundColor: '#3f51b5',
               },
@@ -64,9 +65,20 @@ class app extends Component {
               headerTitleStyle: {
                 fontWeight: 'bold',
               },
-            }}
-            
-            >
+              headerRight: () => (
+                this.state.token != null ? (
+                  <Icon name={'sign-out'}
+                    onPress={() => navigation.navigate('disconnect')}
+                    size={20}
+                    color="#f46b67"
+                  />
+                ) : (
+                  <Icon/>
+                )
+
+              ),
+            })}
+          >
             {this.state.token == null ? (
               <>
                 <Stack.Screen
