@@ -73,28 +73,20 @@ class app extends Component {
                     color="#f46b67"
                   />
                 ) : (
-                  <Icon/>
+                  <Icon />
                 )
               ),
             })}
           >
             {this.state.token == null ? (
               <>
-                <Stack.Screen
-                  name="login"
-                  component={Login}
-                  options={{ headerShown: true }}
-                />
+                <Stack.Screen name="login" component={Login} />
                 <Stack.Screen name="homepage" component={Homepage} />
               </>
             ) : (
               <>
                 <Stack.Screen name="homepage" component={Homepage} />
-                <Stack.Screen
-                  name="login"
-                  component={Login}
-                  options={{ headerShown: true }}
-                />
+                <Stack.Screen name="login" component={Login} />
                 <Stack.Screen name="disconnect" component={Disconnect} />
                 <Stack.Screen name="info" component={Info} />
                 <Stack.Screen name="rapport" component={Rapport} />
