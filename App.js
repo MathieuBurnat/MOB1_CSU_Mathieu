@@ -7,6 +7,7 @@ import { Text, StyleSheet, TextInput, View, SafeAreaView, Button, } from "react-
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import Homepage from "./screens/homepage";
 import Info from "./screens/info";
@@ -54,31 +55,44 @@ class app extends Component {
           changeToken: this.changeToken,
         }}
       >
-        <NavigationContainer>
-          <Stack.Navigator>
+        <NavigationContainer   >
+          <Stack.Navigator
+            screenOptions={({ navigation }) => ({
+              headerStyle: {
+                backgroundColor: '#3f51b5',
+              },
+              headerTintColor: '#fff',
+              headerTitleStyle: {
+                fontWeight: 'bold',
+              },
+              headerRight: () => (
+                this.state.token != null ? (
+                  <Icon name={'sign-out'}
+                    onPress={() => navigation.navigate('disconnect')}
+                    size={20}
+                    color="#f46b67"
+                  />
+                ) : (
+                  <Icon />
+                )
+              ),
+            })}
+          >
             {this.state.token == null ? (
               <>
-                <Stack.Screen
-                  name="login"
-                  component={Login}
-                  options={{ headerShown: true }}
-                />
+                <Stack.Screen name="login" component={Login} />
                 <Stack.Screen name="homepage" component={Homepage} />
               </>
             ) : (
               <>
                 <Stack.Screen name="homepage" component={Homepage} />
-                <Stack.Screen
-                  name="login"
-                  component={Login}
-                  options={{ headerShown: true }}
-                />
+                <Stack.Screen name="login" component={Login} />
                 <Stack.Screen name="disconnect" component={Disconnect} />
                 <Stack.Screen name="info" component={Info} />
                 <Stack.Screen name="rapport" component={Rapport} />
                 <Stack.Screen name="consultation" component={Consultation} />
                 <Stack.Screen name="shifts" component={Shift} />
-                <Stack.Screen name="shiftDetail" component={ShiftDetail}/>
+                <Stack.Screen name="shiftDetail" component={ShiftDetail} />
                 <Stack.Screen name="stup" component={Stup} />
                 <Stack.Screen name="pharmacheck" component={Pharmacheck} />
                 <Stack.Screen name="novacheck" component={Novacheck} />
