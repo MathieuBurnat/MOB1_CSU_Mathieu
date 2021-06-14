@@ -69,11 +69,9 @@ class Login extends Component {
       localStorage.setItem("initials", this.state.user.initials.toUpperCase());
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("baseId", this.state.user.baseId);
-      
+
       this.context.changeToken(response.data.token);
       this.props.navigation.navigate("homepage");
-      console.log(this.state.user);
-
     }, (error) => {
       console.log(error);
       this.setState({message : "The login or the password is wrong. "});
