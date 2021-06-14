@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
-
+import Pharma from '../../component/repport/pharmacheck/'
 class Pharmacheck extends React.Component {
   render() {
     return (
@@ -16,6 +16,8 @@ class Pharmacheck extends React.Component {
           title="Homepage"
           onPress={() => this.props.navigation.navigate("homepage")}
         />
+
+        <Pharma navigation={this.props.navigation}> </Pharma>
       </View>
     );
   }
