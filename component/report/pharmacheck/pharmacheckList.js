@@ -16,6 +16,7 @@ class PharmacheckList extends React.Component {
     };
 
     this.renderItem = this.renderItem.bind(this);
+    this.savePharmacheck = this.savePharmacheck.bind(this);
   }
 
   componentDidMount() {
@@ -31,6 +32,10 @@ class PharmacheckList extends React.Component {
       });
   }
 
+  savePharmacheck(id){
+    console.log("What's my ID ? ", id);
+  }
+
   renderItem({ item }) {
     let start = item.start ?? 0;
     let end = item.end ?? 0;
@@ -41,8 +46,13 @@ class PharmacheckList extends React.Component {
         <Text> Le {item.date} </Text>
         <Text> Matin </Text>
         <Input placeholder={start} />
+
         <Text> Soir </Text>
         <Input placeholder={end}/>
+        <Button
+          title="Sauvegarder"
+          onPress={() => this.savePharmacheck(item.id)}
+        />      
       </Card>
     );
     return card;
