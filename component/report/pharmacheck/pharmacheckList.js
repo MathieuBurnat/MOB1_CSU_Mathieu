@@ -41,7 +41,20 @@ class PharmacheckList extends React.Component {
         <Input placeholder="0" />
         <Input placeholder="1" />
         <NumericInput type='up-down' onChange={value => console.log(value)} />
-
+        <NumericInput 
+            value={this.state.value} 
+            onChange={value => this.setState({value})} 
+            onLimitReached={(isMax,msg) => console.log(isMax,msg)}
+            totalWidth={240} 
+            totalHeight={50} 
+            iconSize={25}
+            step={1.5}
+            valueType='real'
+            rounded 
+            textColor='#B0228C' 
+            iconStyle={{ color: 'white' }} 
+            rightButtonBackgroundColor='#EA3788' 
+            leftButtonBackgroundColor='#E56B70'/>
       </Card>
     );
     return card;
