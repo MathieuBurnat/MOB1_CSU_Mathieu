@@ -66,15 +66,24 @@ class app extends Component {
                 fontWeight: 'bold',
               },
               headerRight: () => (
-                this.state.token != null ? (
-                  <Icon name={'sign-out'}
-                    onPress={() => navigation.navigate('disconnect')}
+                <span>
+                  <Icon name={'home'}
+                    onPress={() => navigation.navigate('homepage')}
                     size={20}
-                    color="#f46b67"
+                    color="#000000"
                   />
-                ) : (
-                  <Icon />
-                )
+
+                  {this.state.token != null ? (
+                    <Icon name={'sign-out'}
+                      onPress={() => navigation.navigate('disconnect')}
+                      size={20}
+                      color="#f46b67"
+                    />
+                  ) : (
+                    <Icon />
+                  )}
+                </span>
+
               ),
             })}
           >
