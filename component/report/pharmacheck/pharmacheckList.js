@@ -32,29 +32,17 @@ class PharmacheckList extends React.Component {
   }
 
   renderItem({ item }) {
+    let start = item.start ?? 0;
+    let end = item.end ?? 0;
+
     let card = (
       <Card>
         <Text> {item.drug} </Text>
         <Text> Le {item.date} </Text>
-        <Text> Le {item.date} </Text>
-        <Text> {item.start} puis {item.end}</Text>
-        <Input placeholder="0" />
-        <Input placeholder="1" />
-        <NumericInput type='up-down' onChange={value => console.log(value)} />
-        <NumericInput 
-            value={this.state.value} 
-            onChange={value => this.setState({value})} 
-            onLimitReached={(isMax,msg) => console.log(isMax,msg)}
-            totalWidth={240} 
-            totalHeight={50} 
-            iconSize={25}
-            step={1.5}
-            valueType='real'
-            rounded 
-            textColor='#B0228C' 
-            iconStyle={{ color: 'white' }} 
-            rightButtonBackgroundColor='#EA3788' 
-            leftButtonBackgroundColor='#E56B70'/>
+        <Text> Matin </Text>
+        <Input placeholder={start} />
+        <Text> Soir </Text>
+        <Input placeholder={end}/>
       </Card>
     );
     return card;
