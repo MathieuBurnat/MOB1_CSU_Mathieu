@@ -29,7 +29,7 @@ class API {
       })
   }
 
-  //Get pharmachecks to do on a base
+  //Get pharmachecks to do on a baseId (Return : PharmacheckList on Ste-Croix)
   getPharmachecks(token, id) {
     return axios
       .get("http://127.0.0.1:8000/api/missingchecks/" + id, {
