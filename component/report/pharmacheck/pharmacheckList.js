@@ -59,7 +59,7 @@ class PharmacheckList extends React.Component {
   }
 
   render() {
-    return this.state.data.length != 0 ? (
+    return this.state.data != null && this.state.data.length != 0 ? (
       <FlatList
         style={styles.items}
         data={this.state.data}
