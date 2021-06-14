@@ -23,11 +23,13 @@ class Login extends Component {
       user: {
         initials: "",
         password: "",
+        baseId: 0,
       },
       message: "",
     };
     this.setInitials = this.setInitials.bind(this);
     this.setPassword = this.setPassword.bind(this);
+    this.setBaseId = this.setBaseId.bind(this);
   }
 
   setInitials(initials) {
@@ -48,6 +50,15 @@ class Login extends Component {
     });
   }
 
+  setBaseId(baseId){
+    this.setState({
+      user: {
+        ...this.state.user,
+        baseId,
+      },
+    });
+  }
+
   login = () =>
   {
     axios.post('http://127.0.0.1:8000/api/gettoken', {
@@ -57,9 +68,12 @@ class Login extends Component {
     .then((response) => {
       localStorage.setItem("initials", this.state.user.initials.toUpperCase());
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("baseId", this.state.user.baseId);
+      
       this.context.changeToken(response.data.token);
-
       this.props.navigation.navigate("homepage");
+      console.log(this.state.user);
+
     }, (error) => {
       console.log(error);
       this.setState({message : "The login or the password is wrong. "});
@@ -90,7 +104,7 @@ class Login extends Component {
             onChangeText={this.setPassword}
           />
 
-          <SelectCities/>
+          <SelectCities setBaseId={ this.setBaseId }/>
 
           <Button
             title="Login"

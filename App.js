@@ -22,9 +22,8 @@ import ShiftDetail from "./screens/consultation/shifts/shiftDetails";
 
 import Stup from "./screens/consultation/drugs/stup";
 
-import Rapport from "./screens/rapport/rapport";
-import Pharmacheck from "./screens/rapport/pharmacheck";
-import Novacheck from "./screens/rapport/novacheck";
+import Pharmacheck from "./screens/report/pharmacheck";
+import Novacheck from "./screens/report/novacheck";
 
 const Stack = createStackNavigator();
 
@@ -89,7 +88,6 @@ class app extends Component {
                 <Stack.Screen name="login" component={Login} />
                 <Stack.Screen name="disconnect" component={Disconnect} />
                 <Stack.Screen name="info" component={Info} />
-                <Stack.Screen name="rapport" component={Rapport} />
                 <Stack.Screen name="consultation" component={Consultation} />
                 <Stack.Screen name="shifts" component={Shift} />
                 <Stack.Screen name="shiftDetail" component={ShiftDetail} />
