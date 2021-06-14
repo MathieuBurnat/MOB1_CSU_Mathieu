@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
 
-class Rapport extends React.Component {
+class Report extends React.Component {
   render() {
     return (
       <View style={styles.container}>
@@ -36,4 +36,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Rapport;
+export default Report;

@@ -22,6 +22,7 @@ import ShiftDetail from "./screens/consultation/shifts/shiftDetails";
 
 import Stup from "./screens/consultation/drugs/stup";
 
+import Report from "./screens/report/report";
 import Pharmacheck from "./screens/report/pharmacheck";
 import Novacheck from "./screens/report/novacheck";
 
@@ -92,6 +93,7 @@ class app extends Component {
                 <Stack.Screen name="shifts" component={Shift} />
                 <Stack.Screen name="shiftDetail" component={ShiftDetail} />
                 <Stack.Screen name="stup" component={Stup} />
+                <Stack.Screen name="report" component={Report} />
                 <Stack.Screen name="pharmacheck" component={Pharmacheck} />
                 <Stack.Screen name="novacheck" component={Novacheck} />
               </>

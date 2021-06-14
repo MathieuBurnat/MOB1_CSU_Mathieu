@@ -44,7 +44,7 @@ class Homepage extends React.Component {
           />
           <Button
             title="Voir les rapports"
-            onPress={() => this.props.navigation.navigate("rapport")}
+            onPress={() => this.props.navigation.navigate("report")}
           />
         </View>
       );
