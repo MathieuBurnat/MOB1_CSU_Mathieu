@@ -11,12 +11,6 @@ class Pharmacheck extends React.Component {
           title="Rapport"
           onPress={() => this.props.navigation.navigate("report")}
         />
-
-        <Button
-          title="Homepage"
-          onPress={() => this.props.navigation.navigate("homepage")}
-        />
-
         <PharmacheckList navigation={this.props.navigation}> </PharmacheckList>
       </View>
     );

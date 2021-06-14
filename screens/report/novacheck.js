@@ -12,12 +12,6 @@ class Novacheck extends React.Component {
           title="Rapport"
           onPress={() => this.props.navigation.navigate("report")}
         />
-
-        
-        <Button
-          title="Homepage"
-          onPress={() => this.props.navigation.navigate("homepage")}
-        />
       </View>
     );
   }

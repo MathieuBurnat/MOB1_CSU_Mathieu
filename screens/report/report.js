@@ -5,11 +5,6 @@ class Report extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button
-          title="Homepage"
-          onPress={() => this.props.navigation.navigate("homepage")}
-        />
-
         <Text> Faire un </Text>
 
 
