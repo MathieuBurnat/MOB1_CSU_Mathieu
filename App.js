@@ -86,6 +86,7 @@ class app extends Component {
               <>
                 <Stack.Screen name="login" component={Login} />
                 <Stack.Screen name="homepage" component={Homepage} />
+                <Stack.Screen name="info" component={Info} />
               </>
             ) : (
               <>
