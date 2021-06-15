@@ -24,12 +24,13 @@ class Login extends Component {
         initials: "",
         password: "",
         baseId: 0,
+        baseName: "",
       },
       message: "",
     };
     this.setInitials = this.setInitials.bind(this);
     this.setPassword = this.setPassword.bind(this);
-    this.setBaseId = this.setBaseId.bind(this);
+    this.setBase = this.setBase.bind(this);
   }
 
   setInitials(initials) {
@@ -50,11 +51,12 @@ class Login extends Component {
     });
   }
 
-  setBaseId(baseId){
+  setBase(id, name){
     this.setState({
       user: {
         ...this.state.user,
-        baseId,
+        baseId : id,
+        baseName : name,
       },
     });
   }
@@ -69,7 +71,7 @@ class Login extends Component {
       localStorage.setItem("initials", this.state.user.initials.toUpperCase());
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("baseId", this.state.user.baseId);
-
+      localStorage.setItem("baseName", this.state.user.baseName);
       this.context.changeToken(response.data.token);
       this.props.navigation.navigate("homepage");
     }, (error) => {
@@ -102,7 +104,7 @@ class Login extends Component {
             onChangeText={this.setPassword}
           />
 
-          <SelectCities setBaseId={ this.setBaseId }/>
+          <SelectCities setBase={ this.setBase }/>
 
           <Button
             title="Login"

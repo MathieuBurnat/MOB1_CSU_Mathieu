@@ -22,12 +22,12 @@ export default class SelectCities extends React.Component {
     return (
       <Picker
         onValueChange={(itemValue, itemIndex) => {
-          this.props.setBaseId(itemIndex);
+          this.props.setBase(itemIndex, itemValue);
           }
         }
       >
         {this.state.data.map((base) => (
-          <Picker.Item label={base.name} value={base.id} key={base.id} />
+          <Picker.Item label={base.name} value={base.name} key={base.id}/>
         ))}
       </Picker>
     );

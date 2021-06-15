@@ -4,7 +4,7 @@ import myApi from "../../../API/api";
 import { Text, StyleSheet } from "react-native";
 import { Card, ListItem, Button, View, Input } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
-import NumericInput from 'react-native-numeric-input'
+import NumericInput from "react-native-numeric-input";
 
 import { FlatList } from "react-native-gesture-handler";
 
@@ -13,6 +13,7 @@ class PharmacheckList extends React.Component {
     super(props);
     this.state = {
       data: [],
+      basename: "",
     };
 
     this.renderItem = this.renderItem.bind(this);
@@ -29,10 +30,11 @@ class PharmacheckList extends React.Component {
         this.setState({
           data: res.data.pharma,
         });
+        this.setState({basename : localStorage.getItem("baseName")});
       });
   }
 
-  savePharmacheck(id){
+  savePharmacheck(id) {
     console.log("What's my ID ? ", id);
   }
 
@@ -48,26 +50,32 @@ class PharmacheckList extends React.Component {
         <Input placeholder={start} />
 
         <Text> Soir </Text>
-        <Input placeholder={end}/>
+        <Input placeholder={end} />
         <Button
           title="Sauvegarder"
           onPress={() => this.savePharmacheck(item.id)}
-        />      
+        />
       </Card>
     );
     return card;
   }
 
   render() {
-    return this.state.data != null && this.state.data.length != 0 ? (
-      <FlatList
-        style={styles.items}
-        data={this.state.data}
-        renderItem={this.renderItem}
-        keyExtractor={(item) => item.id}
-      />
-    ) : (
-      <Text>Aucuns Pharmacheck sont disponible.</Text>
+    return (
+      <div>
+        <Text> {this.state.basename} </Text>
+        {this.state.data != null && this.state.data.length != 0 ? (
+          <FlatList
+            style={styles.items}
+            data={this.state.data}
+            renderItem={this.renderItem}
+            keyExtractor={(item, index) => index.toString()}
+          />
+        ) : (
+          <Text>Aucuns Pharmacheck sont disponible.</Text>
+        )}
+        ;
+      </div>
     );
   }
 }
