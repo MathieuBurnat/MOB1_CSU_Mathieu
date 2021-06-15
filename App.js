@@ -65,14 +65,14 @@ class app extends Component {
                   <Icon name={'home'}
                     onPress={() => navigation.navigate('homepage')}
                     size={20}
-                    color="#000000"
+                    style={styles.homeIcon}
                   />
 
                   {this.state.token != null ? (
                     <Icon name={'sign-out'}
                       onPress={() => navigation.navigate('disconnect')}
                       size={20}
-                      color="#f46b67"
+                      style={styles.logoutIcon}
                     />
                   ) : (
                     <Icon />
@@ -120,4 +120,13 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     borderWidth: "thin",
   },
+  homeIcon: {
+    paddingLeft: "15px",
+    paddingRight: "15px",
+  },
+  logoutIcon: {
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    color: "#a00000",
+  }
 });
