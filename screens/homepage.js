@@ -1,6 +1,5 @@
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
-
 class Homepage extends React.Component {
   constructor(props) {
     super(props);
@@ -27,29 +26,36 @@ class Homepage extends React.Component {
   }
 
   render() {
-    let authButton;
+    let authView;
     let message;
-
     //If the user is connected
     // => Set a welcome message
     // => Set the "login button" to a "disconnect button"
     if (this.state.user.token) {
-      message = <Text> Welcome {this.state.user.initials} !! </Text>;
+      message = (
+        <Text style={styles.message}> Bienvenue <Text style={styles.initials}> {this.state.user.initials} </Text> ! </Text>
+      );
 
-      authButton = (
-        <View>
-          <Button
+      authView = (
+        <div>
+          <Button style={styles.child}
             title="Voir les consultations"
+            color="cadetblue"
             onPress={() => this.props.navigation.navigate("consultation")}
           />
-          <Button
+          <Button style={styles.child}
             title="Voir les rapports"
+            color="#b65bc9"
             onPress={() => this.props.navigation.navigate("report")}
           />
-        </View>
+        </div>
       );
     } else {
-      authButton = (
+      message = (
+        <Text style={styles.message}> Vous n'êtes pas encore  <Text style={styles.initials}> connecté </Text> </Text>
+      );
+
+      authView = (
         <Button
           title="Se connecter"
           onPress={() => this.props.navigation.navigate("login")}
@@ -58,29 +64,40 @@ class Homepage extends React.Component {
     }
 
     return (
-      <View style={styles.container}>
-        <Text> Welcome </Text>
-
-        {authButton}
-
-        <Button
-          title="Info"
-          onPress={() => this.props.navigation.navigate("info")}
-        />
-
-        {message}
-      </View>
+        <View style={styles.parent}>
+          {message}
+          {authView}
+          <Button style={styles.child}
+            title="Info"
+            onPress={() => this.props.navigation.navigate("info")}
+            color="#3f51b5"
+          />
+        </View>
     );
+
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  parent: {
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    flex: 1,
   },
+  child: {
+    paddingTop: "50px",
+    paddingBottom: "50px"
+  },
+  message: {
+    marginTop: "10px",
+    marginBottom: "40px",
+    fontSize: "20px",
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  initials :{
+    color: "#009688",
+  }
+
 });
 
 export default Homepage;
