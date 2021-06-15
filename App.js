@@ -44,11 +44,6 @@ class app extends Component {
   };
 
   render() {
-    //let {isLogged} = localStorage.getItem("isLogged");
-    //If the user is connected
-    // -> Then he could access to the special pages
-    // Doc interesting here
-    // https://reactnavigation.org/docs/auth-flow/
     return (
       <LoginContext.Provider
         value={{
