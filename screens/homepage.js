@@ -74,7 +74,6 @@ class Homepage extends React.Component {
           />
         </View>
     );
-
   }
 }
 
@@ -97,7 +96,6 @@ const styles = StyleSheet.create({
   initials :{
     color: "#009688",
   }
-
 });
 
 export default Homepage;
