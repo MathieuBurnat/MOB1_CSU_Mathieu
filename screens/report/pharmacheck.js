@@ -4,13 +4,7 @@ import PharmacheckList from '../../component/report/pharmacheck/pharmacheckList'
 class Pharmacheck extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text> Garde </Text>
-
-        <Button
-          title="Rapport"
-          onPress={() => this.props.navigation.navigate("report")}
-        />
+      <View >
         <PharmacheckList navigation={this.props.navigation}> </PharmacheckList>
       </View>
     );
@@ -18,12 +12,13 @@ class Pharmacheck extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
+  message: {
+    marginTop: "10px",
+    marginBottom: "40px",
+    fontSize: "20px",
+    fontWeight: "bold",
+    textAlign: "center",
+  }
 });
 
 export default Pharmacheck;
