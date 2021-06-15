@@ -30,12 +30,18 @@ class PharmacheckList extends React.Component {
         this.setState({
           data: res.data.pharma,
         });
-        this.setState({basename : localStorage.getItem("baseName")});
+        this.setState({ basename: localStorage.getItem("baseName") });
       });
   }
 
-  savePharmacheck(id) {
-    console.log("What's my ID ? ", id);
+  savePharmacheck(item) {
+    console.log("Save item.. ");
+    console.log(item);
+    console.log("Token : " + localStorage.getItem("token"));
+
+    myApi.postPharmacheck(localStorage.getItem("token"), item).then((res) => {
+      console.log(res);
+    });
   }
 
   renderItem({ item }) {
@@ -53,7 +59,7 @@ class PharmacheckList extends React.Component {
         <Input placeholder={end} />
         <Button
           title="Sauvegarder"
-          onPress={() => this.savePharmacheck(item.id)}
+          onPress={() => this.savePharmacheck(item)}
         />
       </Card>
     );

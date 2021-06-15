@@ -38,6 +38,16 @@ class API {
         },
       })
   }
+
+  postPharmacheck(token, item) 
+  {
+    return axios
+      .post("http://127.0.0.1:8000/api/pharmacheck/", item, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+  }
 }
 
 const myApi = new API();
