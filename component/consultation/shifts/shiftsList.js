@@ -29,16 +29,14 @@ class ShiftsList extends React.Component {
     let card = (
       <Card>
         <Text> Le {item.date} à {item.base}
-          <Button style={styles.detailBtn}
-
-            icon={
+          <Button
+            icon ={
               <Icon
                 name="search"
                 size={15}
                 color="white"
               />
             }
-
             onPress={() => this.props.navigation.navigate("shiftDetail", {item})}
           />
         </Text>
@@ -62,10 +60,6 @@ class ShiftsList extends React.Component {
 export default ShiftsList;
 
 const styles = StyleSheet.create({
-  items: {
-    width: "100%",
-  },
-  detailBtn: {
-    width: "5%",
+  button: {
   }
 });
