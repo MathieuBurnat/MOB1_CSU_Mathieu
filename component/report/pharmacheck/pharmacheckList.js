@@ -7,6 +7,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import NumericInput from "react-native-numeric-input";
 
 import { FlatList } from "react-native-gesture-handler";
+import Pharmacheck from "./pharmacheck.js"
 
 class PharmacheckList extends React.Component {
   constructor(props) {
@@ -17,7 +18,6 @@ class PharmacheckList extends React.Component {
     };
 
     this.renderItem = this.renderItem.bind(this);
-    this.savePharmacheck = this.savePharmacheck.bind(this);
   }
 
   componentDidMount() {
@@ -34,36 +34,8 @@ class PharmacheckList extends React.Component {
       });
   }
 
-  savePharmacheck(item) {
-    console.log("Save item.. ");
-    console.log(item);
-    console.log("Token : " + localStorage.getItem("token"));
-
-    myApi.postPharmacheck(localStorage.getItem("token"), item).then((res) => {
-      console.log(res);
-    });
-  }
-
   renderItem({ item }) {
-    let start = item.start ?? 0;
-    let end = item.end ?? 0;
-
-    let card = (
-      <Card>
-        <Text> {item.drug} </Text>
-        <Text> Le {item.date} </Text>
-        <Text> Matin </Text>
-        <Input placeholder={start} />
-
-        <Text> Soir </Text>
-        <Input placeholder={end} />
-        <Button
-          title="Sauvegarder"
-          onPress={() => this.savePharmacheck(item)}
-        />
-      </Card>
-    );
-    return card;
+    return <Pharmacheck item={item}/>;
   }
 
   render() {
