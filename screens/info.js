@@ -4,8 +4,14 @@ import { StyleSheet, Text, View, Button } from "react-native";
 class Info extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text> Obiwan kenobi ?!</Text>
+      <View>
+        <Text style={styles.message}> Information </Text>
+        <View style={styles.container}>
+          <Text>Ce projet est créé par dans le cadre du module <Text style={styles.initials}>MOB1</Text> avec comme objectif d'apprendre le React Native. </Text>
+        </View>
+        <View style={styles.container}>
+          <Text>Si vous avez des questions, des suggestions ou des commentaires à me faire, n'hésitez surtout pas ! 0:'D</Text>
+        </View>
       </View>
     );
   }
@@ -13,11 +19,18 @@ class Info extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    padding: "10px",
   },
+  message: {
+    marginTop: "10px",
+    marginBottom: "20px",
+    fontSize: "20px",
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  initials :{
+    color: "#009688",
+  }
 });
 
 export default Info;
