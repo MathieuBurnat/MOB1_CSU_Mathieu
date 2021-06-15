@@ -4,8 +4,8 @@ import { StyleSheet, Text, View, Button } from "react-native";
 class Consultation extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text> Voir mes rapports de </Text>
+      <View>
+        <Text style={styles.message}> Consulter mes rapports </Text>
 
         <Button
           title="Garde"
@@ -23,11 +23,13 @@ class Consultation extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+
+  message: {
+    marginTop: "10px",
+    marginBottom: "40px",
+    fontSize: "20px",
+    fontWeight: "bold",
+    textAlign: "center",
   },
 });
 

@@ -4,26 +4,21 @@ import { StyleSheet, Text, View, Button } from "react-native";
 class Novacheck extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text> Stup </Text>
-
-
-        <Button
-          title="Rapport"
-          onPress={() => this.props.navigation.navigate("report")}
-        />
+      <View >
+        <Text style={styles.message}> Stupéfiants </Text>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
+  message: {
+    marginTop: "10px",
+    marginBottom: "40px",
+    fontSize: "20px",
+    fontWeight: "bold",
+    textAlign: "center",
+  }
 });
 
 export default Novacheck;

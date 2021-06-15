@@ -12,12 +12,10 @@ class ShiftDetail extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-
-        <Text> Détails de la journée à : {this.props.route.params.item.base}</Text>
-        <Text> Le : {this.props.route.params.item.date}</Text>
+      <View>
+        <Text style={styles.date}> Le <Text style={styles.bold}> {this.props.route.params.item.date} </Text></Text>
+        <Text style={styles.message}> <Text style={styles.special}> {this.props.route.params.item.base} </Text></Text>
         <ActionsList item={this.props.route.params.item}> </ActionsList>
-
       </View>
 
     );
@@ -26,10 +24,22 @@ class ShiftDetail extends React.Component {
 export default ShiftDetail;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+  message:{
+    marginTop: "10px",
+    marginBottom: "10px",
+    fontSize: "20px",
+    fontWeight: "bold",
+    textAlign: "center",
   },
+  special :{
+    color: "#009688",
+  },
+  bold :{
+    fontWeight: "bold",
+  },  
+  date: {
+    marginTop: "2px",
+    marginRight: "5px",
+    textAlign : "right"
+  }
 });

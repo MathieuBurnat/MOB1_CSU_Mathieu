@@ -44,11 +44,6 @@ class app extends Component {
   };
 
   render() {
-    //let {isLogged} = localStorage.getItem("isLogged");
-    //If the user is connected
-    // -> Then he could access to the special pages
-    // Doc interesting here
-    // https://reactnavigation.org/docs/auth-flow/
     return (
       <LoginContext.Provider
         value={{
@@ -70,14 +65,14 @@ class app extends Component {
                   <Icon name={'home'}
                     onPress={() => navigation.navigate('homepage')}
                     size={20}
-                    color="#000000"
+                    style={styles.homeIcon}
                   />
 
                   {this.state.token != null ? (
                     <Icon name={'sign-out'}
                       onPress={() => navigation.navigate('disconnect')}
                       size={20}
-                      color="#f46b67"
+                      style={styles.logoutIcon}
                     />
                   ) : (
                     <Icon />
@@ -91,6 +86,7 @@ class app extends Component {
               <>
                 <Stack.Screen name="login" component={Login} />
                 <Stack.Screen name="homepage" component={Homepage} />
+                <Stack.Screen name="info" component={Info} />
               </>
             ) : (
               <>
@@ -125,4 +121,13 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     borderWidth: "thin",
   },
+  homeIcon: {
+    paddingLeft: "15px",
+    paddingRight: "15px",
+  },
+  logoutIcon: {
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    color: "#a00000",
+  }
 });

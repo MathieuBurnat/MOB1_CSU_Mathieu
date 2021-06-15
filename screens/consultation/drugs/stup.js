@@ -4,19 +4,21 @@ import { StyleSheet, Text, View, Button } from "react-native";
 class Pharmacheck extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text> Pharmacheck </Text>
-
-        <Button
-          title="Consultation"
-          onPress={() => this.props.navigation.navigate("consultation")}
-        />
+      <View>
+        <Text style={styles.message}> Pharmacheck </Text>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  message: {
+    marginTop: "10px",
+    marginBottom: "40px",
+    fontSize: "20px",
+    fontWeight: "bold",
+    textAlign: "center",
+  },
   container: {
     flex: 1,
     backgroundColor: "#fff",

@@ -35,22 +35,22 @@ class PharmacheckList extends React.Component {
   }
 
   renderItem({ item }) {
+    //Create a new Pharmacheck with the given item
     return <Pharmacheck item={item}/>;
   }
 
   render() {
     return (
       <div>
-        <Text> {this.state.basename} </Text>
+        <Text style={styles.message}> <Text style={styles.initials}> {this.state.basename} </Text> </Text>
         {this.state.data != null && this.state.data.length != 0 ? (
           <FlatList
-            style={styles.items}
             data={this.state.data}
             renderItem={this.renderItem}
             keyExtractor={(item, index) => index.toString()}
           />
         ) : (
-          <Text>Aucuns Pharmacheck sont disponible.</Text>
+          <Text style={styles.message}> Aucuns Pharmacheck sont disponible. </Text>
         )}
         ;
       </div>
@@ -61,7 +61,14 @@ class PharmacheckList extends React.Component {
 export default PharmacheckList;
 
 const styles = StyleSheet.create({
-  items: {
-    width: "100%",
+  message: {
+    marginTop: "10px",
+    marginBottom: "40px",
+    fontSize: "20px",
+    fontWeight: "bold",
   },
+  initials :{
+    color: "#009688",
+    float: "right",
+  }
 });
