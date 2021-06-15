@@ -21,12 +21,13 @@ export default class SelectCities extends React.Component {
   render() {
     return (
       <Picker
-        onValueChange={(itemValue, itemIndex) =>
-          (this.selectedValue = itemValue)
+        onValueChange={(itemValue, itemIndex) => {
+          this.props.setBase(itemIndex, itemValue);
+          }
         }
       >
         {this.state.data.map((base) => (
-          <Picker.Item label={base.name} value={base.id} key={base.id} />
+          <Picker.Item label={base.name} value={base.name} key={base.id}/>
         ))}
       </Picker>
     );

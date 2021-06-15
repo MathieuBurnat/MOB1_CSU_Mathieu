@@ -5,12 +5,6 @@ class Consultation extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-
-        <Button
-          title="Homepage"
-          onPress={() => this.props.navigation.navigate("homepage")}
-        />
-
         <Text> Voir mes rapports de </Text>
 
         <Button

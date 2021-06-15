@@ -6,11 +6,6 @@ class Info extends React.Component {
     return (
       <View style={styles.container}>
         <Text> Obiwan kenobi ?!</Text>
-
-        <Button
-          title="Homepage"
-          onPress={() => this.props.navigation.navigate("homepage")}
-        />
       </View>
     );
   }

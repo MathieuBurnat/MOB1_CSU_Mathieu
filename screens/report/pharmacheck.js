@@ -1,23 +1,17 @@
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
-
-class Novacheck extends React.Component {
+import PharmacheckList from '../../component/report/pharmacheck/pharmacheckList'
+class Pharmacheck extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text> Stup </Text>
-
+        <Text> Garde </Text>
 
         <Button
           title="Rapport"
-          onPress={() => this.props.navigation.navigate("rapport")}
+          onPress={() => this.props.navigation.navigate("report")}
         />
-
-        
-        <Button
-          title="Homepage"
-          onPress={() => this.props.navigation.navigate("homepage")}
-        />
+        <PharmacheckList navigation={this.props.navigation}> </PharmacheckList>
       </View>
     );
   }
@@ -32,4 +26,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Novacheck;
+export default Pharmacheck;

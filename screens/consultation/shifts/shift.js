@@ -12,11 +12,6 @@ class Shift extends React.Component {
           title="Consultation"
           onPress={() => this.props.navigation.navigate("consultation")}
         />
-        <Button
-          title="Homepage"
-          onPress={() => this.props.navigation.navigate("homepage")}
-        />
-
         <ShiftsList navigation={this.props.navigation}> </ShiftsList>
 
       </View>
