@@ -55,7 +55,7 @@ class app extends Component {
           changeToken: this.changeToken,
         }}
       >
-        <NavigationContainer   >
+        <NavigationContainer>
           <Stack.Navigator
             screenOptions={({ navigation }) => ({
               headerStyle: {
