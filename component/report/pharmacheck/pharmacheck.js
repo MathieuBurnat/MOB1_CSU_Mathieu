@@ -45,12 +45,9 @@ class Pharmacheck extends React.Component {
       <Card>
         <Text> 
           <Text>Le {date}</Text> 
-          <Text style={styles.batch}>
-            Le<Text style={styles.bold}> {this.props.item.batch_number}  </Text>
-          </Text> 
         </Text>
         <Text style={styles.title}> {this.props.item.drug} </Text>
-        <Text style={styles.center}> [{this.props.item.batch_number}] </Text>
+        <Text style={styles.center}> {this.props.item.batch_number} </Text>
         <Text> Matin </Text>
         <Input placeholder={start} onChangeText={this.setStart} />
         <Text> Soir </Text>
@@ -76,6 +73,7 @@ const styles = StyleSheet.create({
     fontSize: "20px",
     textAlign: "center",
     fontWeight: "bold",
+    marginTop: "13px",
   },
   batch: {
     fontWeight: "bold",
