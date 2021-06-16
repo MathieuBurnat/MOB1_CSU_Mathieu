@@ -4,7 +4,6 @@ import { Card, Input } from "react-native-elements";
 import myApi from "../../../API/api";
 import Moment from "moment";
 
-import ShiftsList from "../../../component/consultation/shifts/shiftsList";
 class Pharmacheck extends React.Component {
   constructor(props) {
     super(props);
