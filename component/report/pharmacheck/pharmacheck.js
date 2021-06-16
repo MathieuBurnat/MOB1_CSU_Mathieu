@@ -20,17 +20,32 @@ class Pharmacheck extends React.Component {
   }
 
   savePharmacheck(item) {
+    console.log("before");
+    console.log(item);
+
+
+    console.log("after");
+    item.end = this.state.end;
+    item.start = this.state.start;
+
+    console.log(item);
+
     myApi.postPharmacheck(localStorage.getItem("token"), item).then((res) => {
       console.log(res);
     });
   }
 
   setEnd(end) {
+    console.log("New end", end);
+
     this.setState({ end });
+    console.log(this.state)
   }
 
   setStart(start) {
+    console.log("New start", start);
     this.setState({ start });
+    console.log(this.state)
   }
 
   render() {
@@ -56,7 +71,7 @@ class Pharmacheck extends React.Component {
           value={start}
           skin="clean"
           style={styles.inputSpinner}
-          onChangeText={this.setEnd}
+          onChange={this.setStart}
         />
 
         <Text style={styles.day}> Soir </Text>
@@ -65,7 +80,7 @@ class Pharmacheck extends React.Component {
           value={end}
           skin="clean"
           style={styles.inputSpinner}
-          onChangeText={this.setEnd}
+          onChange={this.setEnd}
         />
         <Button
           title="Sauvegarder"
