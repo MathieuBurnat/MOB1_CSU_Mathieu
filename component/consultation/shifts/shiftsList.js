@@ -4,8 +4,8 @@ import myApi from "../../../API/api";
 import { Text, StyleSheet } from "react-native";
 import { Card, ListItem, Button } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/FontAwesome';
-
 import { FlatList } from "react-native-gesture-handler";
+import Moment from "moment";
 
 class ShiftsList extends React.Component {
   constructor(props) {
@@ -26,9 +26,13 @@ class ShiftsList extends React.Component {
   }
 
   renderItem({ item }) {
+    Moment.locale("fr");
+    let date = Moment(item.date).format("Y MMM DD");
+
+
     let card = (
       <Card>
-        <Text> Le {item.date} à {item.base}
+        <Text> Le {date} à {item.base}
           <Button
             icon ={
               <Icon

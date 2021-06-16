@@ -2,6 +2,8 @@ import React from "react";
 
 import { StyleSheet, Text, View, Button } from "react-native";
 import ActionsList from "../../../component/consultation/shifts/actionsList";
+import Moment from "moment";
+
 class ShiftDetail extends React.Component {
   constructor(props) {
     super(props);
@@ -11,9 +13,12 @@ class ShiftDetail extends React.Component {
   }
 
   render() {
+    Moment.locale("fr");
+    let date = Moment(this.props.route.params.item.date).format("Y MMM DD");
+
     return (
       <View>
-        <Text style={styles.date}> Le <Text style={styles.bold}> {this.props.route.params.item.date} </Text></Text>
+        <Text style={styles.date}> Le <Text style={styles.bold}> {date} </Text></Text>
         <Text style={styles.message}> <Text style={styles.special}> {this.props.route.params.item.base} </Text></Text>
         <ActionsList item={this.props.route.params.item}> </ActionsList>
       </View>

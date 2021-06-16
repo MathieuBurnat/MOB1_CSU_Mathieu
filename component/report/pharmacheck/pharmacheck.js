@@ -38,7 +38,7 @@ class Pharmacheck extends React.Component {
     let start = this.props.item.start ?? 0;
     let end = this.props.item.end ?? 0;
     Moment.locale("fr");
-    let date = Moment(this.props.item.date).format("Y-MMM-DD");
+    let date = Moment(this.props.item.date).format("Y MMM DD");
 
     // Create the card
     let card = (
