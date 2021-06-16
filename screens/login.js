@@ -93,6 +93,7 @@ class Login extends Component {
             style={{ height: 40 }}
             placeholder="Login"
             onChangeText={this.setInitials}
+            maxLength={3}
           />
 
           <Text>Password</Text>
