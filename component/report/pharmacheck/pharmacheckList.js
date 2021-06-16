@@ -50,9 +50,8 @@ class PharmacheckList extends React.Component {
             keyExtractor={(item, index) => index.toString()}
           />
         ) : (
-          <Text style={styles.message}> Aucuns Pharmacheck sont disponible. </Text>
+          <Text style={styles.error}> Aucuns Pharmacheck sont disponible. </Text>
         )}
-        ;
       </div>
     );
   }
@@ -66,6 +65,13 @@ const styles = StyleSheet.create({
     marginBottom: "40px",
     fontSize: "20px",
     fontWeight: "bold",
+  },
+  error: {
+    marginTop: "50px",
+    marginBottom: "40px",
+    fontSize: "15px",
+    fontWeight: "bold",
+    textAligh: "center",
   },
   initials :{
     color: "#009688",
