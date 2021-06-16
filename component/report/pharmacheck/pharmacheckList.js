@@ -50,7 +50,7 @@ class PharmacheckList extends React.Component {
             keyExtractor={(item, index) => index.toString()}
           />
         ) : (
-          <Text style={styles.error}> Aucuns Pharmacheck sont disponible. </Text>
+          <Text style={styles.error}> Aucun Pharmacheck n'est disponible. </Text>
         )}
       </div>
     );
