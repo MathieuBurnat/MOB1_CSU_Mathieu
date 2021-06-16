@@ -2,6 +2,7 @@ import React from "react";
 import { Text, Button, StyleSheet } from "react-native";
 import { Card, Input } from "react-native-elements";
 import myApi from "../../../API/api";
+import Moment from "moment";
 
 import ShiftsList from "../../../component/consultation/shifts/shiftsList";
 class Pharmacheck extends React.Component {
@@ -36,12 +37,14 @@ class Pharmacheck extends React.Component {
     // -> Put 0 as default value
     let start = this.props.item.start ?? 0;
     let end = this.props.item.end ?? 0;
+    Moment.locale("fr");
+    let date = Moment(this.props.item.date).format("Y-MMM-DD");
 
     // Create the card
     let card = (
       <Card>
         <Text> 
-          <Text>Le {this.props.item.date}</Text> 
+          <Text>Le {date}</Text> 
           <Text style={styles.batch}>
             Le<Text style={styles.bold}> {this.props.item.batch_number}  </Text>
           </Text> 
