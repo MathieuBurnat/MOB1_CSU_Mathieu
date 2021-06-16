@@ -4,6 +4,8 @@ import { Card, Input } from "react-native-elements";
 import myApi from "../../../API/api";
 import Moment from "moment";
 
+import InputSpinner from "react-native-input-spinner";
+
 class Pharmacheck extends React.Component {
   constructor(props) {
     super(props);
@@ -42,8 +44,8 @@ class Pharmacheck extends React.Component {
     // Create the card
     let card = (
       <Card>
-        <Text> 
-          <Text>Le {date}</Text> 
+        <Text>
+          <Text>Le {date}</Text>
         </Text>
         <Text style={styles.title}> {this.props.item.drug} </Text>
         <Text style={styles.center}> {this.props.item.batch_number} </Text>
@@ -58,6 +60,15 @@ class Pharmacheck extends React.Component {
         <Button
           title="Sauvegarder"
           onPress={() => this.savePharmacheck(this.props.item)}
+        />
+        <InputSpinner
+          min={0}
+          value={this.state.number}
+          skin="clean"
+          style={styles.inputSpinner}
+          onChange={(num) => {
+            console.log(num);
+          }}
         />
       </Card>
     );
@@ -80,5 +91,9 @@ const styles = StyleSheet.create({
   },
   center: {
     textAlign: "center",
+  },
+  inputSpinner:{
+    width: "50%",
+    alignSelf: "center",
   }
 });
