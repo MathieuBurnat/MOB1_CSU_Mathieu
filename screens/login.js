@@ -73,6 +73,8 @@ class Login extends Component {
       localStorage.setItem("baseId", this.state.user.baseId);
       localStorage.setItem("baseName", this.state.user.baseName);
       this.context.changeToken(response.data.token);
+      this.setState({message : ""});
+
       this.props.navigation.navigate("homepage");
     }, (error) => {
       console.log(error);
