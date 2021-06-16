@@ -45,30 +45,31 @@ class Pharmacheck extends React.Component {
     let card = (
       <Card>
         <Text>
-          <Text>Le {date}</Text>
+        Le {date}
+        <Text style={styles.batch}> {this.props.item.batch_number} </Text>
         </Text>
+
         <Text style={styles.title}> {this.props.item.drug} </Text>
-        <Text style={styles.center}> {this.props.item.batch_number} </Text>
-        <Text> Matin </Text>
-        <Input placeholder={start} onChangeText={this.setStart} />
-        <Text> Soir </Text>
-        <Input
-          placeholder={end}
+        <Text style={styles.day}> Matin </Text>
+        <InputSpinner
+          min={0}
+          value={start}
+          skin="clean"
+          style={styles.inputSpinner}
           onChangeText={this.setEnd}
-          keyboardType="numeric"
+        />
+
+        <Text style={styles.day}> Soir </Text>
+        <InputSpinner
+          min={0}
+          value={end}
+          skin="clean"
+          style={styles.inputSpinner}
+          onChangeText={this.setEnd}
         />
         <Button
           title="Sauvegarder"
           onPress={() => this.savePharmacheck(this.props.item)}
-        />
-        <InputSpinner
-          min={0}
-          value={this.state.number}
-          skin="clean"
-          style={styles.inputSpinner}
-          onChange={(num) => {
-            console.log(num);
-          }}
         />
       </Card>
     );
@@ -89,11 +90,14 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     float: "right",
   },
-  center: {
-    textAlign: "center",
-  },
-  inputSpinner:{
+  inputSpinner: {
     width: "50%",
     alignSelf: "center",
+    marginTop: "5px",
+    marginBottom: "15px",
+  },
+  day: {
+    textAlign: "center",
+    marginTop: "10px"
   }
 });
