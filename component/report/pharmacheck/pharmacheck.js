@@ -20,32 +20,19 @@ class Pharmacheck extends React.Component {
   }
 
   savePharmacheck(item) {
-    console.log("before");
-    console.log(item);
-
-
-    console.log("after");
     item.end = this.state.end;
     item.start = this.state.start;
-
-    console.log(item);
-
     myApi.postPharmacheck(localStorage.getItem("token"), item).then((res) => {
       console.log(res);
     });
   }
 
   setEnd(end) {
-    console.log("New end", end);
-
     this.setState({ end });
-    console.log(this.state)
   }
 
   setStart(start) {
-    console.log("New start", start);
     this.setState({ start });
-    console.log(this.state)
   }
 
   render() {
