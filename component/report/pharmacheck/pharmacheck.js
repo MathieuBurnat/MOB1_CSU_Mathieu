@@ -20,6 +20,8 @@ class Pharmacheck extends React.Component {
   }
 
   savePharmacheck(item) {
+    item.end = this.state.end;
+    item.start = this.state.start;
     myApi.postPharmacheck(localStorage.getItem("token"), item).then((res) => {
       console.log(res);
     });
@@ -56,7 +58,7 @@ class Pharmacheck extends React.Component {
           value={start}
           skin="clean"
           style={styles.inputSpinner}
-          onChangeText={this.setEnd}
+          onChange={this.setStart}
         />
 
         <Text style={styles.day}> Soir </Text>
@@ -65,7 +67,7 @@ class Pharmacheck extends React.Component {
           value={end}
           skin="clean"
           style={styles.inputSpinner}
-          onChangeText={this.setEnd}
+          onChange={this.setEnd}
         />
         <Button
           title="Sauvegarder"
