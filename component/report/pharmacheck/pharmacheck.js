@@ -42,6 +42,7 @@ class Pharmacheck extends React.Component {
       <Card>
         <Text> {this.props.item.drug} </Text>
         <Text> Le {this.props.item.date} </Text>
+        <Text> Lot : {this.props.item.batch_number} </Text>
         <Text> Matin </Text>
         <Input placeholder={start} onChangeText={this.setStart} />
         <Text> Soir </Text>
