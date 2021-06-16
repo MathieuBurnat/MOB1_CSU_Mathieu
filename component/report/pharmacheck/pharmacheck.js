@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, Button } from "react-native";
+import { Text, Button, StyleSheet } from "react-native";
 import { Card, Input } from "react-native-elements";
 import myApi from "../../../API/api";
 
@@ -40,9 +40,14 @@ class Pharmacheck extends React.Component {
     // Create the card
     let card = (
       <Card>
-        <Text> {this.props.item.drug} </Text>
-        <Text> Le {this.props.item.date} </Text>
-        <Text> Lot : {this.props.item.batch_number} </Text>
+        <Text> 
+          <Text>Le {this.props.item.date}</Text> 
+          <Text style={styles.batch}>
+            Le<Text style={styles.bold}> {this.props.item.batch_number}  </Text>
+          </Text> 
+        </Text>
+        <Text style={styles.title}> {this.props.item.drug} </Text>
+        <Text style={styles.center}> [{this.props.item.batch_number}] </Text>
         <Text> Matin </Text>
         <Input placeholder={start} onChangeText={this.setStart} />
         <Text> Soir </Text>
@@ -62,3 +67,18 @@ class Pharmacheck extends React.Component {
 }
 
 export default Pharmacheck;
+
+const styles = StyleSheet.create({
+  title: {
+    fontSize: "20px",
+    textAlign: "center",
+    fontWeight: "bold",
+  },
+  batch: {
+    fontWeight: "bold",
+    float: "right",
+  },
+  center: {
+    textAlign: "center",
+  }
+});
