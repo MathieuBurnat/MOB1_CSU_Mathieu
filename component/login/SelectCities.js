@@ -8,6 +8,9 @@ export default class SelectCities extends React.Component {
     this.state = {
       data: [],
     };
+
+    this.setBaseToParent = this.setBaseToParent.bind(this);
+    this.getBaseName = this.getBaseName.bind(this);
   }
 
   componentDidMount() {
@@ -18,16 +21,27 @@ export default class SelectCities extends React.Component {
     });
   }
 
+  getBaseName(base_id) {
+    let baseName = "";
+    this.state.data.map((base) => {
+      if (base_id == base.id) {
+        baseName = base.name;
+      }
+    });
+    return baseName;
+  }
+
+  setBaseToParent(base_id) {
+    this.props.setBase(base_id, this.getBaseName(base_id));
+  }
+
   render() {
     return (
-      <Picker
-        onValueChange={(itemValue, itemIndex) => {
-          this.props.setBase(itemIndex, itemValue);
-          }
-        }
-      >
+      <Picker onValueChange={(itemValue) => {
+        this.setBaseToParent(itemValue);
+      }}>
         {this.state.data.map((base) => (
-          <Picker.Item label={base.name} value={base.name} key={base.id}/>
+          <Picker.Item label={base.name} value={base.id} key={base.id} />
         ))}
       </Picker>
     );
