@@ -8,13 +8,13 @@ class Report extends React.Component {
         <Text style={styles.message}> Créer un rapport </Text>
 
         <Button
-          title="novacheck"
-          onPress={() => this.props.navigation.navigate("novacheck")}
-        />
-        
-        <Button
           title="pharmacheck"
           onPress={() => this.props.navigation.navigate("pharmacheck")}
+        />
+
+        <Button
+          title="novacheck"
+          onPress={() => this.props.navigation.navigate("novacheck")}
         />
       </View>
     );

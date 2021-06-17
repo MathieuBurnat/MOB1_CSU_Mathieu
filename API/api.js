@@ -29,8 +29,8 @@ class API {
       })
   }
 
-  //Get pharmachecks to do on a baseId (Return : PharmacheckList on Ste-Croix)
-  getPharmachecks(token, id) {
+  //Get Missing to do on a baseId (Return : Return Pharma & Nova list on a base_id(city))
+  getMissingchecks(token, id) {
     return axios
       .get("http://127.0.0.1:8000/api/missingchecks/" + id, {
         headers: {
@@ -43,6 +43,16 @@ class API {
   {
     return axios
       .post("http://127.0.0.1:8000/api/pharmacheck/", item, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+  }
+
+  postNovacheck(token, item) 
+  {
+    return axios
+      .post("http://127.0.0.1:8000/api/novacheck/", item, {
         headers: {
           Authorization: "Bearer " + token,
         },

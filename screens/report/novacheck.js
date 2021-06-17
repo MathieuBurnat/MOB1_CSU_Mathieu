@@ -1,11 +1,11 @@
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
-
+import NovacheckList from '../../component/report/novacheck/novacheckList'
 class Novacheck extends React.Component {
   render() {
     return (
       <View >
-        <Text style={styles.message}> Stupéfiants </Text>
+        <NovacheckList navigation={this.props.navigation}> </NovacheckList>
       </View>
     );
   }

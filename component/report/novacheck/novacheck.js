@@ -6,7 +6,7 @@ import Moment from "moment";
 
 import InputSpinner from "react-native-input-spinner";
 
-class Pharmacheck extends React.Component {
+class Novacheck extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,15 +14,15 @@ class Pharmacheck extends React.Component {
       end: 0,
     };
 
-    this.savePharmacheck = this.savePharmacheck.bind(this);
+    this.saveNovacheck = this.saveNovacheck.bind(this);
     this.setEnd = this.setEnd.bind(this);
     this.setStart = this.setStart.bind(this);
   }
 
-  savePharmacheck(item) {
+  saveNovacheck(item) {
     item.end = this.state.end;
     item.start = this.state.start;
-    myApi.postPharmacheck(localStorage.getItem("token"), item).then((res) => {
+    myApi.postNovacheck(localStorage.getItem("token"), item).then((res) => {
       console.log(res);
     });
   }
@@ -47,8 +47,8 @@ class Pharmacheck extends React.Component {
     let card = (
       <Card>
         <Text>
-        Le {date}
-          <Text style={styles.right}> Lot : <Text style={styles.batch}>{this.props.item.batch_number}</Text></Text>
+          Le {date}
+          <Text style={styles.right}> Nova : <Text style={styles.nova}>{this.props.item.nova}</Text></Text>
         </Text>
 
         <Text style={styles.title}> {this.props.item.drug} </Text>
@@ -71,7 +71,7 @@ class Pharmacheck extends React.Component {
         />
         <Button
           title="Sauvegarder"
-          onPress={() => this.savePharmacheck(this.props.item)}
+          onPress={() => this.saveNovacheck(this.props.item)}
         />
       </Card>
     );
@@ -79,7 +79,7 @@ class Pharmacheck extends React.Component {
   }
 }
 
-export default Pharmacheck;
+export default Novacheck;
 
 const styles = StyleSheet.create({
   title: {
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginTop: "13px",
   },
-  batch: {
+  nova: {
     fontWeight: "bold",
   },
   right: {

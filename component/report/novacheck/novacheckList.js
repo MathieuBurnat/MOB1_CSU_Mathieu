@@ -7,9 +7,9 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import NumericInput from "react-native-numeric-input";
 
 import { FlatList } from "react-native-gesture-handler";
-import Pharmacheck from "./pharmacheck.js"
+import Novacheck from "./Novacheck.js"
 
-class PharmacheckList extends React.Component {
+class NovacheckList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,15 +28,15 @@ class PharmacheckList extends React.Component {
       )
       .then((res) => {
         this.setState({
-          data: res.data.pharma,
+          data: res.data.nova,
         });
         this.setState({ basename: localStorage.getItem("baseName") });
       });
   }
 
   renderItem({ item }) {
-    //Create a new Pharmacheck with the given item
-    return <Pharmacheck item={item}/>;
+    //Create a new Novacheck with the given item
+    return <Novacheck item={item}/>;
   }
 
   render() {
@@ -50,14 +50,14 @@ class PharmacheckList extends React.Component {
             keyExtractor={(item, index) => index.toString()}
           />
         ) : (
-          <Text style={styles.error}> Aucun Pharmacheck n'est disponible. </Text>
+          <Text style={styles.error}> Aucun Novacheck n'est disponible. </Text>
         )}
       </div>
     );
   }
 }
 
-export default PharmacheckList;
+export default NovacheckList;
 
 const styles = StyleSheet.create({
   message: {
