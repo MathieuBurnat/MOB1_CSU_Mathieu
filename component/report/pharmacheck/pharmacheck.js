@@ -48,7 +48,7 @@ class Pharmacheck extends React.Component {
       <Card>
         <Text>
         Le {date}
-        <Text style={styles.batch}> {this.props.item.batch_number} </Text>
+          <Text style={styles.right}> Lot : <Text style={styles.batch}>{this.props.item.batch_number}</Text></Text>
         </Text>
 
         <Text style={styles.title}> {this.props.item.drug} </Text>
@@ -90,6 +90,8 @@ const styles = StyleSheet.create({
   },
   batch: {
     fontWeight: "bold",
+  },
+  right: {
     float: "right",
   },
   inputSpinner: {
