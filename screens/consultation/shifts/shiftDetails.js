@@ -18,7 +18,7 @@ class ShiftDetail extends React.Component {
 
     return (
       <View>
-        <Text style={styles.date}> Le <Text style={styles.bold}> {date} </Text></Text>
+        <Text style={styles.date}> Rapport du<Text style={styles.bold}> {date} </Text></Text>
         <Text style={styles.message}> <Text style={styles.special}> {this.props.route.params.item.base} </Text></Text>
         <ActionsList item={this.props.route.params.item}> </ActionsList>
       </View>
