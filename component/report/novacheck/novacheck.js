@@ -48,7 +48,7 @@ class Novacheck extends React.Component {
       <Card>
         <Text>
           Le {date}
-          <Text style={styles.batch}> {this.props.item.batch_number} </Text>
+          <Text style={styles.right}> Nova : <Text style={styles.nova}>{this.props.item.nova}</Text></Text>
         </Text>
 
         <Text style={styles.title}> {this.props.item.drug} </Text>
@@ -88,8 +88,10 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginTop: "13px",
   },
-  batch: {
+  nova: {
     fontWeight: "bold",
+  },
+  right: {
     float: "right",
   },
   inputSpinner: {
