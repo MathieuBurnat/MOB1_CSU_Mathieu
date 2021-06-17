@@ -22,7 +22,7 @@ class PharmacheckList extends React.Component {
 
   componentDidMount() {
     myApi
-      .getPharmachecks(
+      .getMissingchecks(
         localStorage.getItem("token"),
         localStorage.getItem("baseId")
       )
