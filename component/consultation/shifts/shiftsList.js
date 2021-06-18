@@ -6,7 +6,7 @@ import { Card, ListItem, Button } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { FlatList } from "react-native-gesture-handler";
 import Moment from "moment";
-
+import { showMessage } from "react-native-flash-message";
 class ShiftsList extends React.Component {
   constructor(props) {
     super(props);
@@ -21,6 +21,12 @@ class ShiftsList extends React.Component {
     myApi.getReports(localStorage.getItem("token")).then((res) => {
       this.setState({
         data: res.data,
+      });
+    }, (error) => {
+      showMessage({
+        message: "Impossible de charger la liste des shifts. ",
+        type: "danger",
+        duration: 6000,
       });
     });
   }
