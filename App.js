@@ -26,6 +26,8 @@ import Report from "./screens/report/report";
 import Pharmacheck from "./screens/report/pharmacheck";
 import Novacheck from "./screens/report/novacheck";
 
+import FlashMessage from "react-native-flash-message";
+
 const Stack = createStackNavigator();
 
 class app extends Component {
@@ -104,6 +106,7 @@ class app extends Component {
               </>
             )}
           </Stack.Navigator>
+          <FlashMessage position="top"/>
         </NavigationContainer>
       </LoginContext.Provider>
     );
