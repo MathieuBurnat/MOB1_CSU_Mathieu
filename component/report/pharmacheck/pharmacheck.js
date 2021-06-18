@@ -3,6 +3,7 @@ import { Text, Button, StyleSheet } from "react-native";
 import { Card, Input } from "react-native-elements";
 import myApi from "../../../API/api";
 import Moment from "moment";
+import { showMessage } from "react-native-flash-message";
 
 import InputSpinner from "react-native-input-spinner";
 
@@ -24,6 +25,17 @@ class Pharmacheck extends React.Component {
     item.start = this.state.start;
     myApi.postPharmacheck(localStorage.getItem("token"), item).then((res) => {
       console.log(res);
+      showMessage({
+        message: "Pharma sauvegardée ! ",
+        type: "success",
+        duration: 1000,
+      });
+    }, (error) => {
+      showMessage({
+        message: "Impossible de sauvegarder ma pharma, ressayez plus tard. ",
+        type: "danger",
+        duration: 6000,
+      });
     });
   }
 

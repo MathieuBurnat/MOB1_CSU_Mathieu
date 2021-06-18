@@ -8,6 +8,7 @@ import NumericInput from "react-native-numeric-input";
 
 import { FlatList } from "react-native-gesture-handler";
 import Pharmacheck from "./pharmacheck.js"
+import { showMessage } from "react-native-flash-message";
 
 class PharmacheckList extends React.Component {
   constructor(props) {
@@ -31,6 +32,12 @@ class PharmacheckList extends React.Component {
           data: res.data.pharma,
         });
         this.setState({ basename: localStorage.getItem("baseName") });
+      }, (error) => {
+        showMessage({
+          message: "Impossible de charger les Pharmas. ",
+          type: "danger",
+          duration: 6000,
+        });
       });
   }
 
