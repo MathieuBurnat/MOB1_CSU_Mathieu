@@ -1,6 +1,7 @@
 import React from "react";
 import myApi from "../../API/api";
 import { Picker } from "@react-native-picker/picker";
+import { showMessage } from "react-native-flash-message";
 
 export default class SelectCities extends React.Component {
   constructor(props) {
@@ -17,6 +18,12 @@ export default class SelectCities extends React.Component {
     myApi.getCities().then((res) => {
       this.setState({
         data: res.data,
+      });
+    }, (error) => {
+      showMessage({
+        message: "Impossible de charger les villes. ",
+        type: "danger",
+        duration: 6000,
       });
     });
   }
