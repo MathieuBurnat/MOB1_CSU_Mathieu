@@ -2,6 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
 import axios from "axios";
 import { LoginContext } from '../component/login/loginContext'; 
+import { showMessage, hideMessage } from "react-native-flash-message";
 
 import {
   Text,
@@ -75,10 +76,21 @@ class Login extends Component {
       this.context.changeToken(response.data.token);
       this.setState({message : ""});
 
+      showMessage({
+        message: "Vous êtes connecté !",
+        type: "success",
+        duration: 1500,
+      });
+
       this.props.navigation.navigate("homepage");
     }, (error) => {
       console.log(error);
-      this.setState({message : "The login or the password is wrong. "});
+      this.setState({message : "Le nom d'utilisateur ou mot le passe est incorrect. "});
+      showMessage({
+        message: "Le nom d'utilisateur ou mot le passe est incorrect",
+        type: "danger",
+        duration: 2000,
+      });
     });
   }
 
