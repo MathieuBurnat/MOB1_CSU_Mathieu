@@ -4,6 +4,7 @@ import myApi from "../../../API/api";
 import { Text, StyleSheet, View } from "react-native";
 import { Card, ListItem, Button } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { showMessage } from "react-native-flash-message";
 
 import { FlatList } from "react-native-gesture-handler";
 
@@ -21,6 +22,12 @@ class ActionsList extends React.Component {
     myApi.getMyactionsInShift(localStorage.getItem("token"), this.props.item.id).then((res) => {
       this.setState({
         data: res.data.data,
+      });
+    }, (error) => {
+      showMessage({
+        message: "Impossible de charger mes actions. ",
+        type: "danger",
+        duration: 6000,
       });
     });
   }
