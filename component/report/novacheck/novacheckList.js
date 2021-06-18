@@ -8,6 +8,7 @@ import NumericInput from "react-native-numeric-input";
 
 import { FlatList } from "react-native-gesture-handler";
 import Novacheck from "./Novacheck.js"
+import { showMessage } from "react-native-flash-message";
 
 class NovacheckList extends React.Component {
   constructor(props) {
@@ -31,6 +32,12 @@ class NovacheckList extends React.Component {
           data: res.data.nova,
         });
         this.setState({ basename: localStorage.getItem("baseName") });
+      }, (error) => {
+        showMessage({
+          message: "Impossible de charger les novas. ",
+          type: "danger",
+          duration: 6000,
+        });
       });
   }
 
