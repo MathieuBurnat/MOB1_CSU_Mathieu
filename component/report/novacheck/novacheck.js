@@ -5,6 +5,7 @@ import myApi from "../../../API/api";
 import Moment from "moment";
 
 import InputSpinner from "react-native-input-spinner";
+import { showMessage } from "react-native-flash-message";
 
 class Novacheck extends React.Component {
   constructor(props) {
@@ -23,7 +24,18 @@ class Novacheck extends React.Component {
     item.end = this.state.end;
     item.start = this.state.start;
     myApi.postNovacheck(localStorage.getItem("token"), item).then((res) => {
+      showMessage({
+        message: "Nova sauvegardée  ",
+        type: "success",
+        duration: 1000,
+      });
       console.log(res);
+    }, (error) => {
+      showMessage({
+        message: "Impossible de sauvegarder ma nova, ressayez plus tard. ",
+        type: "danger",
+        duration: 6000,
+      });
     });
   }
 
