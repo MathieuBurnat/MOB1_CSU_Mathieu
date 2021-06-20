@@ -2,10 +2,8 @@ import React from "react";
 import myApi from "../../../API/api";
 
 import { Text, StyleSheet } from "react-native";
-import { Card, ListItem, Button } from 'react-native-elements'
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { Card } from 'react-native-elements'
 import { FlatList } from "react-native-gesture-handler";
-import Moment from "moment";
 import { showMessage } from "react-native-flash-message";
 
 class DrugsList extends React.Component {

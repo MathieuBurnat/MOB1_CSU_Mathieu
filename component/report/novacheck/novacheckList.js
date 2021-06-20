@@ -2,9 +2,6 @@ import React from "react";
 import myApi from "../../../API/api";
 
 import { Text, StyleSheet } from "react-native";
-import { Card, ListItem, Button, View, Input } from "react-native-elements";
-import Icon from "react-native-vector-icons/FontAwesome";
-import NumericInput from "react-native-numeric-input";
 
 import { FlatList } from "react-native-gesture-handler";
 import Novacheck from "./Novacheck.js"
