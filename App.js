@@ -83,14 +83,17 @@ class app extends Component {
               ),
             })}
           >
+            { /*  If the user is not connected */ }
             {this.state.token == null ? (
               <>
+                { /* Then he could only access to the three basic pages */ }
                 <Stack.Screen name="login" component={Login} />
                 <Stack.Screen name="homepage" component={Homepage} />
                 <Stack.Screen name="info" component={Info} />
               </>
             ) : (
               <>
+              { /* Otherwise the user could access to the other pages */ }
                 <Stack.Screen name="homepage" component={Homepage} />
                 <Stack.Screen name="login" component={Login} />
                 <Stack.Screen name="disconnect" component={Disconnect} />
