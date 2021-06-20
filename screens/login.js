@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
 import axios from "axios";
 import { LoginContext } from '../component/login/loginContext'; 
-import { showMessage, hideMessage } from "react-native-flash-message";
+import { showMessage } from "react-native-flash-message";
 
 import {
   Text,
