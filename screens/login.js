@@ -75,13 +75,6 @@ class Login extends Component {
       localStorage.setItem("baseName", this.state.user.baseName);
       this.context.changeToken(response.data.token);
       this.setState({message : ""});
-
-      showMessage({
-        message: "Vous êtes connecté !",
-        type: "success",
-        duration: 1500,
-      });
-
       this.props.navigation.navigate("homepage");
     }, (error) => {
       console.log(error);
