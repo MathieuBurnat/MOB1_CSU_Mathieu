@@ -2,8 +2,7 @@ import React from "react";
 import myApi from "../../../API/api";
 
 import { Text, StyleSheet, View } from "react-native";
-import { Card, ListItem, Button } from 'react-native-elements'
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { Card } from 'react-native-elements'
 import { showMessage } from "react-native-flash-message";
 
 import { FlatList } from "react-native-gesture-handler";
