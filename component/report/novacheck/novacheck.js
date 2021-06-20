@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, Button, StyleSheet } from "react-native";
-import { Card, Input } from "react-native-elements";
+import { Card } from "react-native-elements";
 import myApi from "../../../API/api";
 import Moment from "moment";
 
