@@ -1,8 +1,7 @@
 import "react-native-gesture-handler";
 
-import { StatusBar } from "expo-status-bar";
 import React, { Component } from "react";
-import { Text, StyleSheet, TextInput, View, SafeAreaView, Button, } from "react-native";
+import { StyleSheet } from "react-native";
 
 
 import { NavigationContainer } from "@react-navigation/native";
