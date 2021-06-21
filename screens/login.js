@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { LoginContext } from '../component/login/loginContext'; 
 import { showMessage } from "react-native-flash-message";
+import myAPI from "../API/api"
 
 import {
   Text,
@@ -63,8 +64,14 @@ class Login extends Component {
     });
   }
 
-  getAdmin(){
-    return 1;
+  getAdmin(token){
+    let admin = 0;
+    console.log("Token : ", token);
+
+    myAPI.getAdmin(token).then((res) => {
+      console.log(res.data);
+      this.context.changeAdmin(res.data.admin);
+    });
   }
 
   login = () =>
@@ -82,7 +89,7 @@ class Login extends Component {
       localStorage.setItem("admin", this.getAdmin())      
 
       this.context.changeToken(response.data.token);
-      this.context.changeAdmin(this.getAdmin());
+      this.getAdmin(response.data.token);
       
       this.setState({message : ""});
       this.props.navigation.navigate("homepage"); 
