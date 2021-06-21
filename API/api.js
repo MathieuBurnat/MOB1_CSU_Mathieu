@@ -18,6 +18,15 @@ class API {
       })
   }
 
+  getAdmin(token){
+    return axios
+    .get("http://127.0.0.1:8000/api/user/", {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    })
+  }
+
   // Need the user's token
   // Show my actions into a shift 
   getMyactionsInShift(token, id) {

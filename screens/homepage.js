@@ -8,6 +8,7 @@ class Homepage extends React.Component {
       user: {
         token: "",
         initials: "",
+        admin: 0,
       },
     };
   }
@@ -20,6 +21,7 @@ class Homepage extends React.Component {
         user: {
           token: localStorage.getItem("token"),
           initials: localStorage.getItem("initials"),
+          admin: localStorage.getItem("admin"),
         },
       });
     });

@@ -35,6 +35,7 @@ class app extends Component {
 
     this.state = {
       token: localStorage.getItem("token"),
+      admin: localStorage.getItem("admin"),
     };
   }
 
@@ -44,11 +45,18 @@ class app extends Component {
     });
   };
 
+  changeAdmin = (admin) => {
+    this.setState({
+      admin: admin,
+    });
+  };
+
   render() {
     return (
       <LoginContext.Provider
         value={{
           changeToken: this.changeToken,
+          changeAdmin: this.changeAdmin,
         }}
       >
         <NavigationContainer>
@@ -63,6 +71,15 @@ class app extends Component {
               },
               headerRight: () => (
                 <span>
+                  {this.state.token != null && this.state.admin == 1 ? (
+                    <Icon name={'star'}
+                      size={20}
+                      style={styles.starIcon}
+                    />
+                  ) : (
+                    <Icon />
+                  )}
+                  
                   <Icon name={'home'}
                     onPress={() => navigation.navigate('homepage')}
                     size={20}
@@ -79,7 +96,6 @@ class app extends Component {
                     <Icon />
                   )}
                 </span>
-
               ),
             })}
           >
@@ -134,5 +150,10 @@ const styles = StyleSheet.create({
     paddingLeft: "15px",
     paddingRight: "15px",
     color: "#a00000",
+  },
+  starIcon: {
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    color: "#f1ff54",
   }
 });
