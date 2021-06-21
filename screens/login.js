@@ -82,6 +82,8 @@ class Login extends Component {
       localStorage.setItem("admin", this.getAdmin())      
 
       this.context.changeToken(response.data.token);
+      this.context.changeAdmin(this.getAdmin());
+      
       this.setState({message : ""});
       this.props.navigation.navigate("homepage"); 
     }, (error) => {
