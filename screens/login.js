@@ -32,6 +32,7 @@ class Login extends Component {
     this.setInitials = this.setInitials.bind(this);
     this.setPassword = this.setPassword.bind(this);
     this.setBase = this.setBase.bind(this);
+    this.getAdmin = this.getAdmin.bind(this);
   }
 
   setInitials(initials) {
@@ -62,6 +63,10 @@ class Login extends Component {
     });
   }
 
+  getAdmin(){
+    return 1;
+  }
+
   login = () =>
   {
     axios.post('http://127.0.0.1:8000/api/gettoken', {
@@ -74,8 +79,9 @@ class Login extends Component {
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("baseId", this.state.user.baseId);
       localStorage.setItem("baseName", this.state.user.baseName);
+      localStorage.setItem("admin", this.getAdmin())      
+
       this.context.changeToken(response.data.token);
-      
       this.setState({message : ""});
       this.props.navigation.navigate("homepage"); 
     }, (error) => {

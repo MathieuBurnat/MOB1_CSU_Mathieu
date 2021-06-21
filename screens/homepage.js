@@ -8,6 +8,7 @@ class Homepage extends React.Component {
       user: {
         token: "",
         initials: "",
+        admin: 0,
       },
     };
   }
@@ -20,6 +21,7 @@ class Homepage extends React.Component {
         user: {
           token: localStorage.getItem("token"),
           initials: localStorage.getItem("initials"),
+          admin: localStorage.getItem("admin"),
         },
       });
     });
@@ -28,6 +30,7 @@ class Homepage extends React.Component {
   render() {
     let authView;
     let message;
+    let admInfo;
     //If the user is connected
     // => Set a welcome message
     // => Set the "login button" to a "disconnect button"
@@ -35,6 +38,14 @@ class Homepage extends React.Component {
       message = (
         <Text style={styles.message}> Bienvenue <Text style={styles.initials}> {this.state.user.initials} </Text> ! </Text>
       );
+
+      //If the user is admin
+      if(this.state.user.admin ==1)
+      {
+        admInfo = (
+          <Text> Vous êtes administrateur ! </Text>
+          );
+      }
 
       authView = (
         <div>
@@ -66,6 +77,7 @@ class Homepage extends React.Component {
     return (
         <View style={styles.parent}>
           {message}
+          {admInfo}
           {authView}
           <Button style={styles.child}
             title="Info"
