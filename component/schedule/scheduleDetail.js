@@ -17,7 +17,7 @@ class ScheduleDetail extends React.Component {
       reasonEnabled: false,
       reason: "",
       status: "inconnu",
-      statusCode: 0, /* 0 : Unknoe, 1 : Confirmed, 2 : In Discution*/
+      statusCode: 0, /* 0 : Unknow, 1 : Confirmed, 2 : In Discution*/
     };
     this.needToTalkSchedule = this.needToTalkSchedule.bind(this);
     this.saveSchedule = this.saveSchedule.bind(this);
@@ -78,6 +78,14 @@ class ScheduleDetail extends React.Component {
     Moment.locale("fr");
     let date = Moment(this.props.item.date).format("Y MMM DD");
 
+    let reason = ""
+
+    if (this.state.statusCode == 2){
+      reason = (
+        <Text> Votre demande est en cours de discussion : {this.state.reason} </Text>
+      );
+    }
+
     let card = (
       <Card>
         <Text>
@@ -120,6 +128,7 @@ class ScheduleDetail extends React.Component {
             )}
           </View>
         )}
+        {reason}
       </Card>
     );
     return card;
