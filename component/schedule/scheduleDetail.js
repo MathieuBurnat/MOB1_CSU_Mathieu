@@ -14,10 +14,20 @@ class ScheduleDetail extends React.Component {
     this.state = {
       arrayLength: 0,
     };
+    this.needToTalkSchedule = this.needToTalkSchedule.bind(this);
+    this.saveSchedule = this.saveSchedule.bind(this);
+
+  }
+
+  needToTalkSchedule(){
+    console.log("We neek to talk.");
+  }
+
+  saveSchedule(){
+    console.log("OK !");
   }
 
   render() {
-    console.log(this.props.item);
     Moment.locale("fr");
     let date = Moment(this.props.item.date).format("Y MMM DD");
 
@@ -31,14 +41,14 @@ class ScheduleDetail extends React.Component {
           <Icon
             style={styles.timesIcon}
             name={"times"}
-            onPress={() => navigation.navigate("homepage")}
+            onPress={() => this.needToTalkSchedule()}
             size={20}
           />
 
           <Icon
             style={styles.checkIcon}
             name={"check"}
-            onPress={() => navigation.navigate("homepage")}
+            onPress={() => this.saveSchedule()}
             size={20}
           />
         </span>
