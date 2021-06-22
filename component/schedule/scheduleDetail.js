@@ -39,6 +39,7 @@ class ScheduleDetail extends React.Component {
     };
     this.confirmworkplan(item);
     this.setState({status : "En Discussion", statusCode: 2})
+    this.setState({ reasonEnabled: false });
   }
 
   saveSchedule() {
