@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
+import ScheduleButton from "../component/schedule/scheduleButton"
 class Homepage extends React.Component {
   constructor(props) {
     super(props);
@@ -8,6 +9,7 @@ class Homepage extends React.Component {
       user: {
         token: "",
         initials: "",
+        admin: 0,
       },
     };
   }
@@ -20,6 +22,7 @@ class Homepage extends React.Component {
         user: {
           token: localStorage.getItem("token"),
           initials: localStorage.getItem("initials"),
+          admin: localStorage.getItem("admin"),
         },
       });
     });
@@ -38,6 +41,8 @@ class Homepage extends React.Component {
 
       authView = (
         <div>
+          <ScheduleButton navigation={this.props.navigation}/>
+          
           <Button style={styles.child}
             title="Voir les consultations"
             color="cadetblue"

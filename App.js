@@ -1,7 +1,7 @@
 import "react-native-gesture-handler";
 
 import React, { Component } from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Text } from "react-native";
 
 
 import { NavigationContainer } from "@react-navigation/native";
@@ -25,6 +25,8 @@ import Report from "./screens/report/report";
 import Pharmacheck from "./screens/report/pharmacheck";
 import Novacheck from "./screens/report/novacheck";
 
+import ScheduleList from "./screens/schedule/scheduleList";
+
 import FlashMessage from "react-native-flash-message";
 
 const Stack = createStackNavigator();
@@ -35,6 +37,7 @@ class app extends Component {
 
     this.state = {
       token: localStorage.getItem("token"),
+      admin: localStorage.getItem("admin"),
     };
   }
 
@@ -44,11 +47,18 @@ class app extends Component {
     });
   };
 
+  changeAdmin = (admin) => {
+    this.setState({
+      admin: admin,
+    });
+  };
+
   render() {
     return (
       <LoginContext.Provider
         value={{
           changeToken: this.changeToken,
+          changeAdmin: this.changeAdmin,
         }}
       >
         <NavigationContainer>
@@ -63,6 +73,16 @@ class app extends Component {
               },
               headerRight: () => (
                 <span>
+                  <Text style={styles.version}> Version Eval : MBT </Text>
+                  {this.state.token != null && this.state.admin == 1 ? (
+                    <Icon name={'star'}
+                      size={20}
+                      style={styles.starIcon}
+                    />
+                  ) : (
+                    <Icon />
+                  )}
+                  
                   <Icon name={'home'}
                     onPress={() => navigation.navigate('homepage')}
                     size={20}
@@ -79,7 +99,6 @@ class app extends Component {
                     <Icon />
                   )}
                 </span>
-
               ),
             })}
           >
@@ -105,6 +124,7 @@ class app extends Component {
                 <Stack.Screen name="report" component={Report} />
                 <Stack.Screen name="pharmacheck" component={Pharmacheck} />
                 <Stack.Screen name="novacheck" component={Novacheck} />
+                <Stack.Screen name="scheduleList" component={ScheduleList} />
               </>
             )}
           </Stack.Navigator>
@@ -134,5 +154,14 @@ const styles = StyleSheet.create({
     paddingLeft: "15px",
     paddingRight: "15px",
     color: "#a00000",
+  },
+  starIcon: {
+    paddingLeft: "15px",
+    paddingRight: "15px",
+    color: "#f1ff54",
+  },
+  version:{
+    fontStyle: "italic",
+    fontSize: "11px",
   }
 });

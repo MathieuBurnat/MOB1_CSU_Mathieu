@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { LoginContext } from '../component/login/loginContext'; 
 import { showMessage } from "react-native-flash-message";
+import myAPI from "../API/api"
 
 import {
   Text,
@@ -32,6 +33,7 @@ class Login extends Component {
     this.setInitials = this.setInitials.bind(this);
     this.setPassword = this.setPassword.bind(this);
     this.setBase = this.setBase.bind(this);
+    this.getAdmin = this.getAdmin.bind(this);
   }
 
   setInitials(initials) {
@@ -62,6 +64,16 @@ class Login extends Component {
     });
   }
 
+  getAdmin(token){
+    let admin = 0;
+    console.log("Token : ", token);
+
+    myAPI.getAdmin(token).then((res) => {
+      console.log(res.data);
+      this.context.changeAdmin(res.data.admin);
+    });
+  }
+
   login = () =>
   {
     axios.post('http://127.0.0.1:8000/api/gettoken', {
@@ -74,7 +86,10 @@ class Login extends Component {
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("baseId", this.state.user.baseId);
       localStorage.setItem("baseName", this.state.user.baseName);
+      localStorage.setItem("admin", this.getAdmin())      
+
       this.context.changeToken(response.data.token);
+      this.getAdmin(response.data.token);
       
       this.setState({message : ""});
       this.props.navigation.navigate("homepage"); 
