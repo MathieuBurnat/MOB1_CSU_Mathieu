@@ -1,7 +1,7 @@
 import "react-native-gesture-handler";
 
 import React, { Component } from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Text } from "react-native";
 
 
 import { NavigationContainer } from "@react-navigation/native";
@@ -71,6 +71,7 @@ class app extends Component {
               },
               headerRight: () => (
                 <span>
+                  <Text style={styles.version}> Version Eval : MBT </Text>
                   {this.state.token != null && this.state.admin == 1 ? (
                     <Icon name={'star'}
                       size={20}
@@ -155,5 +156,9 @@ const styles = StyleSheet.create({
     paddingLeft: "15px",
     paddingRight: "15px",
     color: "#f1ff54",
+  },
+  version:{
+    fontStyle: "italic",
+    fontSize: "11px",
   }
 });
