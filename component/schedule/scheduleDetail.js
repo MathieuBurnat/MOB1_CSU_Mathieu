@@ -16,6 +16,8 @@ class ScheduleDetail extends React.Component {
       arrayLength: 0,
       reasonEnabled: false,
       reason: "",
+      status: "inconnu",
+      statusCode: 0, /* 0 : Unknoe, 1 : Confirmed, 2 : In Discution*/
     };
     this.needToTalkSchedule = this.needToTalkSchedule.bind(this);
     this.saveSchedule = this.saveSchedule.bind(this);
@@ -36,12 +38,14 @@ class ScheduleDetail extends React.Component {
       reason: this.state.reason,
     };
     this.confirmworkplan(item);
+    this.setState({status : "En Discussion", statusCode: 2})
   }
 
   saveSchedule() {
     //Confirmation 1 = OK
     let item = { id: this.state.item.id, confirmation: 1, reason: "" };
     this.confirmworkplan(item);
+    this.setState({status : "Confirmé", statusCode: 1})
   }
 
   confirmworkplan(item) {
@@ -75,7 +79,10 @@ class ScheduleDetail extends React.Component {
 
     let card = (
       <Card>
-        <Text>Le {date}</Text>
+        <Text>
+          Le {date}
+          <Text style={styles.right}> Status : {this.state.status}</Text>
+        </Text>
 
         <Text style={styles.title}> {this.props.item.worktime.type} </Text>
 
@@ -137,5 +144,8 @@ const styles = StyleSheet.create({
   },
   bold :{
     fontWeight: "bold",
-  }
+  },
+  right :{
+    float: "right",
+  },
 });
