@@ -16,15 +16,38 @@ class ScheduleDetail extends React.Component {
     };
     this.needToTalkSchedule = this.needToTalkSchedule.bind(this);
     this.saveSchedule = this.saveSchedule.bind(this);
-
+    this.confirmworkplan = this.confirmworkplan.bind(this);
   }
 
-  needToTalkSchedule(){
+  needToTalkSchedule(i){
     console.log("We neek to talk.");
+    let item = {confirmation : 0};
+    this.confirmworkplan(item);
   }
 
-  saveSchedule(){
+  saveSchedule(i){
     console.log("OK !");
+    let item = {id: i.id, confirmation : 1, reason: ""};
+    console.log(item);
+
+    this.confirmworkplan(item);
+  }
+
+  confirmworkplan(item){
+    myApi.confirmworkplan(localStorage.getItem("token"), item).then((res) => {
+        showMessage({
+          message: "Modification enregistrée",
+          type: "success",
+          duration: 1000,
+        });
+        console.log(res);
+      }, (error) => {
+        showMessage({
+          message: "Impossible de sauvegarder cette modification, veuillez ressayer plus tard. ",
+          type: "danger",
+          duration: 5000,
+        });
+      });
   }
 
   render() {
@@ -41,14 +64,14 @@ class ScheduleDetail extends React.Component {
           <Icon
             style={styles.timesIcon}
             name={"times"}
-            onPress={() => this.needToTalkSchedule()}
+            onPress={() => this.needToTalkSchedule(this.props.item)}
             size={20}
           />
 
           <Icon
             style={styles.checkIcon}
             name={"check"}
-            onPress={() => this.saveSchedule()}
+            onPress={() => this.saveSchedule(this.props.item)}
             size={20}
           />
         </span>
