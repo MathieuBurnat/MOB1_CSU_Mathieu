@@ -76,6 +76,16 @@ class API {
         },
       })
   }
+
+  confirmworkplan(token, item) 
+  {
+    return axios
+      .post("http://127.0.0.1:8000/api/confirmworkplan/", item, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+  }
 }
 
 const myApi = new API();
