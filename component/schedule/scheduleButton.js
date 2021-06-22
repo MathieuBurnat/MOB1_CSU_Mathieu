@@ -6,35 +6,42 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import { FlatList } from "react-native-gesture-handler";
 import Moment from "moment";
 import { showMessage } from "react-native-flash-message";
+import myApi from "../../API/api";
+
 class ScheduleButon extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+        arrayLength : 0,
+    };
   }
 
   componentDidMount() {
-    //myApi.getReports(localStorage.getItem("token")).then((res) => {
-    //  this.setState({
-    //    data: res.data,
-    //  });
-    //}, (error) => {
-    //  showMessage({
-    //    message: "Impossible de charger la liste des shifts. ",
-    //    type: "danger",
-    //    duration: 6000,
-    //  });
-    //});
+    myApi.getUnconfirmedWorkplans(localStorage.getItem("token")).then((res) => {
+      this.setState({
+        arrayLength: res.data.length,
+      });
+    }, (error) => {
+      showMessage({
+        message: "Impossible de charger les workplans.",
+        type: "danger",
+        duration: 5000,
+      });
+    });
   }
 
   render() {
+      let titile = "Horraires à confirmer [" + this.state.arrayLength + "]";
     return (
       <View>
-        <Button
+          <Button
           style={styles.child}
-          title="Horraires à confirmer"
+          title={titile}
           color="cadetblue"
+     
           onPress={() => this.props.navigation.navigate("consultation")}
         />
+     
       </View>
     );
   }

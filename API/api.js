@@ -27,6 +27,15 @@ class API {
     })
   }
 
+  getUnconfirmedWorkplans(token){
+    return axios
+    .get("http://127.0.0.1:8000/api/unconfirmedworkplans/", {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    })
+  }
+
   // Need the user's token
   // Show my actions into a shift 
   getMyactionsInShift(token, id) {
