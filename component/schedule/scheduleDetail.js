@@ -12,7 +12,7 @@ class ScheduleDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      item : this.props.item,
+      item: this.props.item,
       arrayLength: 0,
       reasonEnabled: false,
       reason: "",
@@ -24,31 +24,23 @@ class ScheduleDetail extends React.Component {
     this.saveReason = this.saveReason.bind(this);
   }
 
-  needToTalkSchedule(i) {
-    console.log("We neek to talk.");
-
+  needToTalkSchedule() {
     this.setState({ reasonEnabled: true });
-
-    //let item = {confirmation : 0};
-    //this.confirmworkplan(item);
   }
 
-  saveReason(){
-    console.log("Reason saved");
-    console.log(this.state.reason);
-    console.log(this.state.item);
-    
+  saveReason() {
     //Confirmation 0 = I'm not OK
-    let item = {id: this.state.item.id, confirmation: 0, reason: this.state.reason};
-    console.log(item);
+    let item = {
+      id: this.state.item.id,
+      confirmation: 0,
+      reason: this.state.reason,
+    };
     this.confirmworkplan(item);
   }
 
-  saveSchedule(i) {
+  saveSchedule() {
     //Confirmation 1 = OK
-    let item = { id: i.id, confirmation: 1, reason: "" };
-
-    console.log(item);
+    let item = { id: this.state.item.id, confirmation: 1, reason: "" };
     this.confirmworkplan(item);
   }
 
@@ -92,14 +84,14 @@ class ScheduleDetail extends React.Component {
             <Icon
               style={styles.timesIcon}
               name={"times"}
-              onPress={() => this.needToTalkSchedule(this.props.item)}
+              onPress={() => this.needToTalkSchedule()}
               size={20}
             />
 
             <Icon
               style={styles.checkIcon}
               name={"check"}
-              onPress={() => this.saveSchedule(this.props.item)}
+              onPress={() => this.saveSchedule()}
               size={20}
             />
           </span>
@@ -112,7 +104,12 @@ class ScheduleDetail extends React.Component {
               onChangeText={this.setReason}
               maxLength={50}
             />
-            <Button title="Sauvegarder" onPress={this.saveReason} />
+            {/* If the reason has not 10 chars as minimum. It's impossible to save the button*/}
+            {this.state.reason.length < 10 ? (
+              <Text> Votre raison doit faire plus de <Text style={styles.bold}>10 charcatères</Text> avant d'être pouvoir enregistrée. </Text>
+            ) : (
+              <Button title="Sauvegarder" onPress={this.saveReason} />
+            )}
           </View>
         )}
       </Card>
@@ -138,4 +135,7 @@ const styles = StyleSheet.create({
   timesIcon: {
     color: "red",
   },
+  bold :{
+    fontWeight: "bold",
+  }
 });
