@@ -12,36 +12,41 @@ class ScheduleButon extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        arrayLength : 0,
+      arrayLength: 0,
     };
   }
 
   componentDidMount() {
-    myApi.getUnconfirmedWorkplans(localStorage.getItem("token")).then((res) => {
-      this.setState({
-        arrayLength: res.data.length,
-      });
-    }, (error) => {
-      showMessage({
-        message: "Impossible de charger les workplans.",
-        type: "danger",
-        duration: 5000,
-      });
-    });
+    myApi.getUnconfirmedWorkplans(localStorage.getItem("token")).then(
+      (res) => {
+        this.setState({
+          arrayLength: res.data.length,
+        });
+      },
+      (error) => {
+        showMessage({
+          message: "Impossible de charger les workplans.",
+          type: "danger",
+          duration: 5000,
+        });
+      }
+    );
   }
 
   render() {
-      let titile = "Horraires à confirmer [" + this.state.arrayLength + "]";
+    let titile = "Horraires à confirmer [" + this.state.arrayLength + "]";
     return (
       <View>
+        {this.state.arrayLength != 0 ? (
           <Button
-          style={styles.child}
-          title={titile}
-          color="cadetblue"
-     
-          onPress={() => this.props.navigation.navigate("consultation")}
-        />
-     
+            style={styles.child}
+            title={titile}
+            color="cadetblue"
+            onPress={() => this.props.navigation.navigate("")}
+          />
+        ) : (
+            <Text/>
+        )}
       </View>
     );
   }
