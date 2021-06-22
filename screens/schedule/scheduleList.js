@@ -6,6 +6,7 @@ import { Card } from 'react-native-elements'
 import { showMessage } from "react-native-flash-message";
 
 import { FlatList } from "react-native-gesture-handler";
+import SheduleDetail from "../../component/schedule/scheduleDetail"
 
 class ScheduleList extends React.Component {
   constructor(props) {
@@ -36,13 +37,7 @@ class ScheduleList extends React.Component {
   }
 
   renderItem({ item }) {
-    let card = (
-      <Card>
-        <Text> [Jour : {item.day} à {item.at}] </Text>
-        <Text> - {item.action}- </Text>
-      </Card>
-    );
-    return card;
+    return <SheduleDetail item={item}/>
   }
 
   render() {
