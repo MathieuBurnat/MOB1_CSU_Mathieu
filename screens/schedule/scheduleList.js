@@ -24,7 +24,6 @@ class ScheduleList extends React.Component {
         this.setState({
           data: res.data,
         });
-        console.log(res.data);
       },
       (error) => {
         showMessage({
