@@ -25,6 +25,8 @@ import Report from "./screens/report/report";
 import Pharmacheck from "./screens/report/pharmacheck";
 import Novacheck from "./screens/report/novacheck";
 
+import ScheduleList from "./screens/schedule/scheduleList";
+
 import FlashMessage from "react-native-flash-message";
 
 const Stack = createStackNavigator();
@@ -122,6 +124,7 @@ class app extends Component {
                 <Stack.Screen name="report" component={Report} />
                 <Stack.Screen name="pharmacheck" component={Pharmacheck} />
                 <Stack.Screen name="novacheck" component={Novacheck} />
+                <Stack.Screen name="scheduleList" component={ScheduleList} />
               </>
             )}
           </Stack.Navigator>

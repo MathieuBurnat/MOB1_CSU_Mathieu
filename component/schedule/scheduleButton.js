@@ -25,7 +25,7 @@ class ScheduleButon extends React.Component {
       },
       (error) => {
         showMessage({
-          message: "Impossible de charger les workplans.",
+          message: "Impossible de charger les workplans à comptabiliser.",
           type: "danger",
           duration: 5000,
         });
@@ -42,7 +42,7 @@ class ScheduleButon extends React.Component {
             style={styles.child}
             title={titile}
             color="cadetblue"
-            onPress={() => this.props.navigation.navigate("")}
+            onPress={() => this.props.navigation.navigate("scheduleList")}
           />
         ) : (
             <Text/>

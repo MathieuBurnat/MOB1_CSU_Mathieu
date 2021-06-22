@@ -41,7 +41,7 @@ class Homepage extends React.Component {
 
       authView = (
         <div>
-          <ScheduleButton/>
+          <ScheduleButton navigation={this.props.navigation}/>
           
           <Button style={styles.child}
             title="Voir les consultations"
