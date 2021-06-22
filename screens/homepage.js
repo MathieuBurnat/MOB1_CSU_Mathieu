@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
+import ScheduleButton from "../component/schedule/scheduleButton"
 class Homepage extends React.Component {
   constructor(props) {
     super(props);
@@ -40,6 +41,8 @@ class Homepage extends React.Component {
 
       authView = (
         <div>
+          <ScheduleButton/>
+          
           <Button style={styles.child}
             title="Voir les consultations"
             color="cadetblue"
