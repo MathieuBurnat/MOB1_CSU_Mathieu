@@ -16,21 +16,53 @@ class ScheduleDetail extends React.Component {
     };
   }
 
-
   render() {
+    console.log(this.props.item);
+    Moment.locale("fr");
+    let date = Moment(this.props.item.date).format("Y MMM DD");
+
     let card = (
-        <Card>
-          <Text> ** Titre ** </Text>
-          <Text> [Jour : {this.props.item.date} à {this.props.item.at}] </Text>
-          <Text> - {this.props.item.at}- </Text>
-        </Card>
-      );
-      return card;
+      <Card>
+        <Text>Le {date}</Text>
+
+        <Text style={styles.title}> {this.props.item.worktime.type} </Text>
+
+        <span>
+          <Icon
+            style={styles.timesIcon}
+            name={"times"}
+            onPress={() => navigation.navigate("homepage")}
+            size={20}
+          />
+
+          <Icon
+            style={styles.checkIcon}
+            name={"check"}
+            onPress={() => navigation.navigate("homepage")}
+            size={20}
+          />
+        </span>
+      </Card>
+    );
+    return card;
   }
 }
 
 export default ScheduleDetail;
 
 const styles = StyleSheet.create({
-  button: {},
+  title: {
+    fontSize: "20px",
+    textAlign: "center",
+    fontWeight: "bold",
+    marginTop: "13px",
+    marginBottom: "15px",
+  },
+  checkIcon: {
+    color: "green",
+    float: "right",
+  },
+  timesIcon: {
+    color: "red",
+  },
 });
